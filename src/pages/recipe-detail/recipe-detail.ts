@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 
 /**
- * Generated class for the RecipesPage page.
+ * Generated class for the RecipeDetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,20 +10,17 @@ import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 
 @IonicPage()
 @Component({
-  selector: 'page-recipes',
-  templateUrl: 'recipes.html',
+  selector: 'page-recipe-detail',
+  templateUrl: 'recipe-detail.html',
 })
-export class RecipesPage {
+export class RecipeDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RecipesPage');
+    console.log('ionViewDidLoad RecipeDetailPage');
   }
 
 
-  navRecipeDetail(recipe){
-    this.navCtrl.push(RecipeDetailPage, recipe);
-  }
 }
