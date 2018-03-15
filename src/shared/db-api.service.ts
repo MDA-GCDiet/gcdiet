@@ -18,6 +18,7 @@ export class DbApiService {
 
   getUsers(): Observable<any> {
     return this.fb.list('users').valueChanges();
+
   }
 
   getRecipes(): Observable<any> {
