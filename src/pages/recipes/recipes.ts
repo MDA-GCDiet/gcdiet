@@ -16,7 +16,6 @@ import {DbApiService} from "../../shared/db-api.service";
   templateUrl: 'recipes.html',
 })
 export class RecipesPage {
-  recipes: any ;
 
   recipes = [];
   fruits = [];
