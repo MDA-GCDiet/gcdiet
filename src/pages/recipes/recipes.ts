@@ -18,27 +18,29 @@ import {DbApiService} from "../../shared/db-api.service";
 export class RecipesPage {
   recipes: any ;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private dbapi: DbApiService, private loadingController: LoadingController) {
+  recipes = [];
+  fruits = [];
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private dbapi: DbApiService) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipesPage');
 
-    let loader = this.loadingController.create({
-      content: "Accediendo a los datos...",
-      spinner: 'dots'
-    });
+    this.dbapi.getRecipes().subscribe(
+      (data) => this.recipes = data
+    );
 
-    loader.present().then(()=>{
-      this.dbapi.getRecipes().subscribe(
-        (data) => {
-          this.recipes = data;
-          loader.dismiss();
-        }
-      );
-    });
   }
 
+
+  viewFruits(){
+    this.dbapi.getFruits().subscribe(
+      (data) => this.fruits = data
+    );
+  }
 
   navRecipeDetail(recipe){
     this.navCtrl.push(RecipeDetailPage, recipe);

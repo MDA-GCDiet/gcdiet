@@ -15,9 +15,33 @@
 
 <ion-content padding>
 
-  <ion-list>
-    <button *ngFor="let item of recipes"
-            ion-item (click)="itemTapped(item)">{{item?.name}}</button>
-  </ion-list>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header class="myheader">Recetas</ion-list-header>
+      <ion-item-group *ngFor="let recipe of recipes">
+        <ion-item-divider color="secondary">
+          {{recipe.name}}
+        </ion-item-divider>
+      </ion-item-group>
+      <!--<button ion-item="" *ngFor="let item of recipes"-->
+      <!--(click)="navRecipeDetail($event,item)"-->
+      <!--&gt;-->
+      <!--<ion-icon name="star"></ion-icon>-->
+      <!--{{item?.team?.name}}-->
+      <!--<p>{{item?.tournament?.name}}</p>-->
+      <!--</button>-->
+    </ion-list>
+  </ion-card>
+  <ion-item>
+
+    <button ion-item="" color="primary" (click)="viewFruits()">Ver frutas</button>
+  </ion-item>
+  <ion-item-group *ngFor="let fruit of fruits">
+    <ion-item-divider color="secondary">
+      {{fruit.name}}
+    </ion-item-divider>
+  </ion-item-group>
+
 
 </ion-content>
