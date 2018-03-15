@@ -7,12 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Recipes</ion-title>
+    <ion-title color="secondary">Recipes</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header class="myheader">Mis recetas</ion-list-header>
+      <button ion-item="" *ngFor="let item of recipes"
+              (click)="navRecipeDetail($event,item)"
+      >
+        <ion-icon name="star"></ion-icon>
+        {{item?.team?.name}}
+        <p>{{item?.tournament?.name}}</p>
+      </button>
+    </ion-list>
+  </ion-card>
 
 </ion-content>
