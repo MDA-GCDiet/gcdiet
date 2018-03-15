@@ -13,12 +13,12 @@ export class DbApiService {
 
   }
 
-  getTournaments():Observable<any>{
-    return this.fb.list('tournaments').valueChanges();
+  getRecipes():Observable<any>{
+    return this.fb.list('recipes').valueChanges();
   }
 
-  getTournamentsData(tourneyId):Observable<any>{
-    return this.fb.object(`tournaments-data/${tourneyId}`).valueChanges()
+  getRecipesData(recipesId):Observable<any>{
+    return this.fb.object(`recipes-data/${recipesId}`).valueChanges()
       .map(resp => this.currentTourney = resp);
   }
 
