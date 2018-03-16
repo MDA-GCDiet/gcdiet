@@ -33,15 +33,16 @@
       <!--</button>-->
     </ion-list>
   </ion-card>
-  <ion-item>
 
-    <button ion-item="" color="primary" (click)="viewFruits()">Ver frutas</button>
-  </ion-item>
-  <ion-item-group *ngFor="let fruit of fruits">
-    <ion-item-divider color="secondary">
-      {{fruit.name}}
-    </ion-item-divider>
-  </ion-item-group>
-
+  <ion-list>
+    <ion-item>
+      <button ion-item="" color="primary" (click)="viewFruits()">Ver frutas</button>
+    </ion-item>
+    <ion-item-group *ngFor="let fruit of fruits">
+      <ion-item-divider color="secondary">
+        {{fruit.name}}
+      </ion-item-divider>
+    </ion-item-group>
+  </ion-list>
 
 </ion-content>

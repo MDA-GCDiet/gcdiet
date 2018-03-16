@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
+
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
 
@@ -16,6 +17,7 @@ import {DbApiService} from "../../shared/db-api.service";
   templateUrl: 'recipes.html',
 })
 export class RecipesPage {
+  @ViewChild(Nav) nav: Nav;
 
   recipes = [];
   fruits = [];
@@ -34,7 +36,6 @@ export class RecipesPage {
 
   }
 
-
   viewFruits(){
     this.dbapi.getFruits().subscribe(
       (data) => this.fruits = data
@@ -43,5 +44,12 @@ export class RecipesPage {
 
   navRecipeDetail(recipe){
     this.navCtrl.push(RecipeDetailPage, recipe);
+  }
+
+  goToRecipes(){
+    this.nav.push(RecipesPage);
+  }
+  goHome(){
+    this.navCtrl.popToRoot();
   }
 }
