@@ -23,6 +23,7 @@ export class RecipesPage {
 
   recipes = [];
   fruits = [];
+  ingredients = [];
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private dbapi: DbApiService) {
@@ -35,6 +36,8 @@ export class RecipesPage {
     this.dbapi.getRecipes().subscribe(
       (data) => this.recipes = data
     );
+
+    this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
 
   }
 
