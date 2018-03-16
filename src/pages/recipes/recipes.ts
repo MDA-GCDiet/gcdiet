@@ -17,7 +17,9 @@ import {DbApiService} from "../../shared/db-api.service";
   templateUrl: 'recipes.html',
 })
 export class RecipesPage {
+
   @ViewChild(Nav) nav: Nav;
+
 
   recipes = [];
   fruits = [];
