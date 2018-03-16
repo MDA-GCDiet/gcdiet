@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
+
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
 
@@ -23,13 +24,16 @@ export class RecipesPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private dbapi: DbApiService) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipesPage');
+
     this.dbapi.getRecipes().subscribe(
       (data) => this.recipes = data
     );
+
   }
 
   viewFruits(){
