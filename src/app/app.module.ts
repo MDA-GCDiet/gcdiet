@@ -14,6 +14,7 @@ import {AngularFireModule} from "angularfire2";
 import {AngularFireAuthModule} from "angularfire2/auth";
 import {DbApiService} from "../shared/db-api.service";
 import {UserService} from "../shared/user-service";
+import {UserPage} from "../pages/user/user";
 
 export const FirebaseConfig = {
   apiKey: "AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs",
@@ -29,7 +30,8 @@ export const FirebaseConfig = {
     MyApp,
     HomePage,
     RecipeDetailPage,
-    RecipesPage
+    RecipesPage,
+    UserPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ export const FirebaseConfig = {
     MyApp,
     HomePage,
     RecipeDetailPage,
-    RecipesPage
+    RecipesPage,
+    UserPage
 
   ],
   providers: [

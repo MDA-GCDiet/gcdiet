@@ -7,7 +7,7 @@ import {AngularFireDatabase} from "angularfire2/database";
 
 @Injectable()
 export class DbApiService {
-  currentTourney: any = [];
+  // currentTourney: any = [];
 
   constructor(private fb: AngularFireDatabase) {
   }

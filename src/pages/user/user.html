@@ -14,5 +14,14 @@
 
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-list>
+      <ion-list-header>Usuarios</ion-list-header>
+      <ion-item-group *ngFor="let user of users">
+      <ion-item-divider color="secondary">
+        {{user.name}}
+      </ion-item-divider>
+      </ion-item-group>
+    </ion-list>
+  </ion-card>
 </ion-content>

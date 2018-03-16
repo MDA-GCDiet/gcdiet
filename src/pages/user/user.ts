@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DbApiService} from "../../shared/db-api.service";
 
 /**
  * Generated class for the UserPage page.
@@ -14,12 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'user.html',
 })
 export class UserPage {
+  users = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private dbapi: DbApiService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserPage');
+    return this.dbapi.getUsers().subscribe(
+      (data) => this.users = data
+    );
   }
 
 }
