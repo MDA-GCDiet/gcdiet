@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {IonicPage, NavController} from 'ionic-angular';
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {RecipesPage} from "../recipes/recipes";
 import {UserPage} from "../user/user";
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

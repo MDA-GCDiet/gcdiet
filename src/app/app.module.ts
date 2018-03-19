@@ -15,6 +15,7 @@ import {AngularFireAuthModule} from "angularfire2/auth";
 import {DbApiService} from "../shared/db-api.service";
 import {UserService} from "../shared/user-service";
 import {UserPage} from "../pages/user/user";
+import {LoginPage} from "../pages/login/login";
 
 export const FirebaseConfig = {
   apiKey: "AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs",
@@ -31,7 +32,8 @@ export const FirebaseConfig = {
     HomePage,
     RecipeDetailPage,
     RecipesPage,
-    UserPage
+    UserPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -46,8 +48,8 @@ export const FirebaseConfig = {
     HomePage,
     RecipeDetailPage,
     RecipesPage,
-    UserPage
-
+    UserPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
