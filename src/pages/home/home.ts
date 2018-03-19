@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {RecipesPage} from "../recipes/recipes";
 import {UserPage} from "../user/user";
+import {MyFormPage} from "../form/form";
 
 @Component({
   selector: 'page-home',
@@ -19,7 +20,7 @@ export class HomePage {
   }
 
   navUsers(){
-    this.navCtrl.push(UserPage);
+    this.navCtrl.push(MyFormPage);
   }
 
 }
