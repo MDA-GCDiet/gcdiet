@@ -33,4 +33,6 @@ export class LoginPage {
   goHome() {
     this.navCtrl.push(HomePage);
   }
+
+
 }
