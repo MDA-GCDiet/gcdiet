@@ -3,6 +3,7 @@ import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
 
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
+import {MapPage} from "../map/map";
 
 /**
  * Generated class for the RecipesPage page.
@@ -56,5 +57,9 @@ export class RecipesPage {
   }
   goHome(){
     this.navCtrl.popToRoot();
+  }
+
+  navMap(){
+    this.navCtrl.push(MapPage);
   }
 }
