@@ -1,0 +1,27 @@
+<!--
+  Generated template for the UserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>User</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-list>
+      <ion-list-header>Usuarios</ion-list-header>
+      <ion-item-group *ngFor="let user of users">
+      <ion-item-divider color="secondary">
+        {{user.name}}
+      </ion-item-divider>
+      </ion-item-group>
+    </ion-list>
+  </ion-card>
+</ion-content>
