@@ -12,7 +12,18 @@
 
 </ion-header>
 
-
 <ion-content padding>
+  <ion-item>
+    <ion-label floating>Usuario:</ion-label>
+    <ion-input type="text" [(ngModel)]="username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password:</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+    <button ion-button (click)="goHome()">Iniciar sesión</button>
+    <button ion-button color="light" (click)="SignIn()">Registrarse</button>
 
 </ion-content>
