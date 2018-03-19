@@ -3,6 +3,7 @@ import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
 
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
+import {MapPage} from "../map/map";
 
 /**
  * Generated class for the RecipesPage page.
@@ -17,10 +18,13 @@ import {DbApiService} from "../../shared/db-api.service";
   templateUrl: 'recipes.html',
 })
 export class RecipesPage {
+
   @ViewChild(Nav) nav: Nav;
+
 
   recipes = [];
   fruits = [];
+  ingredients = [];
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private dbapi: DbApiService) {
@@ -33,6 +37,8 @@ export class RecipesPage {
     this.dbapi.getRecipes().subscribe(
       (data) => this.recipes = data
     );
+
+    this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
 
   }
 
@@ -51,5 +57,9 @@ export class RecipesPage {
   }
   goHome(){
     this.navCtrl.popToRoot();
+  }
+
+  navMap(){
+    this.navCtrl.push(MapPage);
   }
 }

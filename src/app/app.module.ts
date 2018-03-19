@@ -16,6 +16,10 @@ import {DbApiService} from "../shared/db-api.service";
 import {UserService} from "../shared/user-service";
 import {UserPage} from "../pages/user/user";
 import {LoginPage} from "../pages/login/login";
+import {AgmCoreModule} from "@agm/core";
+import {MapPage} from "../pages/map/map";
+import {MyFormPage} from "../pages/form/form";
+
 
 export const FirebaseConfig = {
   apiKey: "AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs",
@@ -33,7 +37,9 @@ export const FirebaseConfig = {
     RecipeDetailPage,
     RecipesPage,
     UserPage,
-    LoginPage
+    LoginPage,
+    MapPage,
+    MyFormPage
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ export const FirebaseConfig = {
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs' })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +56,10 @@ export const FirebaseConfig = {
     RecipeDetailPage,
     RecipesPage,
     UserPage,
-    LoginPage
+    LoginPage,
+    MapPage,
+    MyFormPage
+
   ],
   providers: [
     StatusBar,
