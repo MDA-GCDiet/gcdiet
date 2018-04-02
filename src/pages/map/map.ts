@@ -1,0 +1,33 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+/**
+ * Generated class for the MapPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-map',
+  templateUrl: 'map.html',
+})
+export class MapPage {
+
+  campo={
+    lat: 28.100203,
+    lng: -12.234354,
+    zoom: 8
+  }
+
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad MapPage');
+  }
+
+}
