@@ -11,7 +11,7 @@ import {RecipeDetailPage} from "../pages/recipe-detail/recipe-detail";
 import {RecipesPage} from "../pages/recipes/recipes";
 import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireModule} from "angularfire2";
-import {AngularFireAuthModule} from "angularfire2/auth";
+import {AngularFireAuthModule} from "angularfire2/auth/auth.module";
 import {DbApiService} from "../shared/db-api.service";
 import {UserService} from "../shared/user-service";
 import {UserPage} from "../pages/user/user";
