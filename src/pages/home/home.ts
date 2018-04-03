@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {RecipesPage} from "../recipes/recipes";
 import {UserPage} from "../user/user";
 import { AngularFireAuth } from "angularfire2/auth";
+import {ProfilePage} from "../profile/profile";
 
 @IonicPage()
 @Component({
@@ -42,5 +43,7 @@ export class HomePage {
   navUsers(){
     this.navCtrl.push(UserPage);
   }
-
+  navProfile() {
+    this.navCtrl.push(ProfilePage);
+  }
 }

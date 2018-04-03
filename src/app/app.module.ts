@@ -19,6 +19,7 @@ import {LoginPage} from "../pages/login/login";
 import {MapPage} from "../pages/map/map";
 import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
+import {ProfilePage} from "../pages/profile/profile";
 
 
 export const FirebaseConfig = {
@@ -39,7 +40,8 @@ export const FirebaseConfig = {
     UserPage,
     LoginPage,
     MapPage,
-    RegisterPage
+    RegisterPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ export const FirebaseConfig = {
     UserPage,
     LoginPage,
     MapPage,
-    RegisterPage
+    RegisterPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
