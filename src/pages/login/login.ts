@@ -5,6 +5,7 @@ import {RegisterPage} from "../register/register";
 import {User} from "../../models/user";
 import {AngularFireAuth} from "angularfire2/auth";
 
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -37,7 +38,7 @@ export class LoginPage {
   }
 
   SignIn() {
-    this.navCtrl.push(RegisterPage);
+    this.navCtrl.push(MyFormPage);
   }
 
   // goHome() {
