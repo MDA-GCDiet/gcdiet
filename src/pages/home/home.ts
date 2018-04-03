@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {RecipesPage} from "../recipes/recipes";
 import {UserPage} from "../user/user";
 import { AngularFireAuth } from "angularfire2/auth";
+import {LoginPage} from "../login/login";
 
 @IonicPage()
 @Component({
@@ -20,19 +21,24 @@ export class HomePage {
 
   ionViewWillLoad(){
     this.afAuth.authState.subscribe(data => {
+      console.log(data);
       if (data && data.email && data.uid) {
         this.toast.create({
           message: `Welcome to APP_NAME, ${data.email}`,
           duration: 3000
         }).present();
       }
-      else {
-        this.toast.create({
-          message: `Could not find authentication details`,
-          duration: 3000
-        }).present();
-      }
     });
+  }
+
+  logout() {
+    this.afAuth.auth.signOut().then(() =>
+      this.toast.create({
+        message: `Se ha cerrado sesión correctamente`,
+        duration: 3000
+      }).present()
+    );
+      this.navCtrl.setRoot(LoginPage);
   }
 
   navRecipes(){
