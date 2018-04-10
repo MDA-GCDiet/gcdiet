@@ -4,6 +4,7 @@ import {RecipesPage} from "../recipes/recipes";
 import {UserPage} from "../user/user";
 import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
+import {User} from "../../models/user";
 
 @IonicPage()
 @Component({
@@ -11,6 +12,8 @@ import {LoginPage} from "../login/login";
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+  usuario = {};
 
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
@@ -21,6 +24,7 @@ export class HomePage {
 
   ionViewWillLoad(){
     this.afAuth.authState.subscribe(data => {
+      this.usuario = data;
       console.log(data);
       if (data && data.email && data.uid) {
         this.toast.create({
@@ -31,6 +35,10 @@ export class HomePage {
     });
   }
 
+  goToLogin() {
+    this.navCtrl.push(LoginPage);
+  }
+
   logout() {
     this.afAuth.auth.signOut().then(() =>
       this.toast.create({
@@ -38,7 +46,7 @@ export class HomePage {
         duration: 3000
       }).present()
     );
-      this.navCtrl.setRoot(LoginPage);
+      this.navCtrl.setRoot(HomePage);
   }
 
   navRecipes(){

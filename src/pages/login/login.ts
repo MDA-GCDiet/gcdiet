@@ -60,8 +60,4 @@ export class LoginPage {
     this.navCtrl.push(RegisterPage);
   }
 
-  // goHome() {
-  //   this.navCtrl.setRoot(HomePage);
-  // }
-
 }
