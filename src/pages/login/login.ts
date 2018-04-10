@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, Loading, LoadingController, NavController, NavParams} from 'ionic-angular';
-import {HomePage} from "../home/home";
 import {RegisterPage} from "../register/register";
 import {User} from "../../models/user";
 import {AngularFireAuth} from "angularfire2/auth";
@@ -30,7 +29,7 @@ export class LoginPage {
 
   login(user: User) {
       this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(() => {
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.popToRoot();
         }, (err) => {
         this.loading.dismiss().then( ()=>{
           let alert = this.alertCtrl.create({

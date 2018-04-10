@@ -4,12 +4,14 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
       <button *ngIf="!usuario" ion-button end (click)="goToLogin()">
-        <ion-icon md="md-log-in"></ion-icon>
+        <ion-icon name="log-in" large></ion-icon>
       </button>
-    <button *ngIf="usuario" ion-button color="danger" end (click)="logout()">
-      <ion-icon md="md-log-out"></ion-icon>
-    </button>
+      <button *ngIf="usuario" ion-button color="danger" end (click)="logout()">
+        <ion-icon name="log-out" large></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

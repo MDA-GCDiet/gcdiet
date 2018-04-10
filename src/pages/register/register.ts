@@ -38,23 +38,17 @@ export class RegisterPage {
 
   private createMyForm() {
     return this.formBuilder.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
       email: ['', Validators.required],
-      height: ['', Validators.required],
-      weight: ['', Validators.required],
-      dateBirth: ['', Validators.required],
       passwordRetry: this.formBuilder.group({
         password: ['', Validators.required],
         passwordConfirmation: ['', Validators.required]
       }),
-      gender: ['', Validators.required],
     });
   }
 
   register(user: User) {
     this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password).then(() => {
-      this.navCtrl.setRoot(LoginPage);
+      this.navCtrl.popToRoot();
     }, (err) => {
       this.loading.dismiss().then( ()=>{
         let alert = this.alertCtrl.create({

@@ -23,12 +23,12 @@ export class HomePage {
   }
 
   ionViewWillLoad(){
-    this.afAuth.authState.subscribe(data => {
-      this.usuario = data;
-      console.log(data);
-      if (data && data.email && data.uid) {
+    this.afAuth.authState.subscribe(darta => {
+      this.usuario = darta;
+      console.log(darta);
+      if (darta) {
         this.toast.create({
-          message: `Welcome to APP_NAME, ${data.email}`,
+          message: `Welcome to APP_NAME, ${darta.email}`,
           duration: 3000
         }).present();
       }
