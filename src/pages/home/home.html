@@ -4,6 +4,12 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+      <button *ngIf="!usuario" ion-button end (click)="goToLogin()">
+        <ion-icon md="md-log-in"></ion-icon>
+      </button>
+    <button *ngIf="usuario" ion-button color="danger" end (click)="logout()">
+      <ion-icon md="md-log-out"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +18,6 @@
   <p>
     If you get the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
   </p>
-
 
   <button ion-button secondary (click)="navRecipes()">Recetas</button>
 
