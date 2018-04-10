@@ -38,7 +38,7 @@ export class LoginPage {
   }
 
   SignIn() {
-    this.navCtrl.push(MyFormPage);
+    this.navCtrl.push(RegisterPage);
   }
 
   // goHome() {

@@ -39,7 +39,8 @@ export const FirebaseConfig = {
     UserPage,
     LoginPage,
     MapPage,
-    RegisterPage
+    RegisterPage,
+
   ],
   imports: [
     BrowserModule,
