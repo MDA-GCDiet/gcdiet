@@ -13,7 +13,7 @@ export class DbApiService {
   }
 
   getFruits(): Observable<any> {
-    return this.fb.list('fruits').valueChanges();
+    return this.fb.list('alimentos/0/fruits').valueChanges();
   }
 
   getUsers(): Observable<any> {

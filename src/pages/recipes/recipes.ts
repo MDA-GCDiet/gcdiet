@@ -43,9 +43,10 @@ export class RecipesPage {
   }
 
   viewFruits(){
-    this.dbapi.getFruits().subscribe(
+    const a = this.dbapi.getFruits().subscribe(
       (data) => this.fruits = data
     );
+    console.log(a);
   }
 
   navRecipeDetail(recipe){

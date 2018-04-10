@@ -13,7 +13,7 @@ import {RecipesPage} from "../pages/recipes/recipes";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -37,11 +37,7 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  // goHome() {
-  //   this.nav.setRoot(HomePage);
+  // goToRecipes() {
+  //   this.nav.push(RecipesPage);
   // }
-
-  goToRecipes() {
-    this.nav.push(RecipesPage);
-  }
 }

@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="myForm" (ngSubmit)="saveData()">
+  <form [formGroup]="myForm">
     <ion-list>
       <ion-item>
         <ion-icon name="person" item-start></ion-icon>
@@ -26,7 +26,7 @@
       <ion-item>
         <ion-icon name="mail" item-start></ion-icon>
         <ion-label stacked>Correo electronico:</ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+        <ion-input formControlName="email" type="email" placeholder="Email" [(ngModel)]="user.email"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -48,7 +48,7 @@
         <ion-item>
           <ion-icon name="eye" item-start></ion-icon>
           <ion-label stacked>Contraseña:</ion-label>
-          <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+          <ion-input formControlName="password" type="password" placeholder="Contraseña" [(ngModel)]="user.password"></ion-input>
         </ion-item>
         <ion-item>
           <ion-icon name="eye" item-start></ion-icon>
@@ -74,7 +74,7 @@
       </ion-row>
     </ion-list>
     <div padding>
-      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="register(user)">Guardar</button>
     </div>
   </form>
 </ion-content>
