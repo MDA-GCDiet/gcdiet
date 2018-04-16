@@ -43,7 +43,7 @@ export const FirebaseConfig = {
     LoginPage,
     MapPage,
     RegisterPage,
-    NewRecipePage
+    NewRecipePage,
     PerfilPage
   ],
   imports: [
@@ -64,7 +64,7 @@ export const FirebaseConfig = {
     LoginPage,
     MapPage,
     RegisterPage,
-    NewRecipePage
+    NewRecipePage,
     PerfilPage
   ],
   providers: [
