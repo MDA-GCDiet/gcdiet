@@ -78,15 +78,13 @@ export class RecipesPage {
     this.navCtrl.push(MapPage);
   }
 
-<<<<<<< HEAD
-=======
 
-  createRecipe(){
+  createRecipe() {
     this.navCtrl.push(NewRecipePage);
-
+  }
   navEditRecipe() {
     this.navCtrl.push(RecipeDetailPage);
 
   }
->>>>>>> 78ca602707513548aec44aba8a7ae32cbb81430d
+
 }
