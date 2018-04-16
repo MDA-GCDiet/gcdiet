@@ -65,7 +65,4 @@ export class RecipesPage {
     this.navCtrl.push(MapPage);
   }
 
-  navEditRecipe() {
-    this.navCtrl.push(RecipeDetailPage);
-  }
 }
