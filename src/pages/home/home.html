@@ -1,15 +1,19 @@
 <ion-header>
   <ion-navbar>
+
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
-      <button *ngIf="!usuario" ion-button end (click)="goToLogin()">
-        <ion-icon md="md-log-in"></ion-icon>
-      </button>
-    <button *ngIf="usuario" ion-button color="danger" end (click)="logout()">
-      <ion-icon md="md-log-out"></ion-icon>
+
+    <ion-buttons end>
+    <button *ngIf="!usuario" ion-button (click)="goToLogin()">
+      <ion-icon name="log-in"></ion-icon>
     </button>
+    <button *ngIf="usuario" ion-button color="danger" (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+    </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -24,4 +28,3 @@
   <button ion-button secondary (click)="navUsers()">Usuarios</button>
 
 </ion-content>
-

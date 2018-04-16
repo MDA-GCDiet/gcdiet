@@ -54,7 +54,7 @@ export class RegisterPage {
 
   register(user: User) {
     this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password).then(() => {
-      this.navCtrl.setRoot(LoginPage);
+      this.navCtrl.popToRoot();
     }, (err) => {
       this.loading.dismiss().then( ()=>{
         let alert = this.alertCtrl.create({
