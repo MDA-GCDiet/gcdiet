@@ -79,11 +79,12 @@ export class RecipesPage {
   }
 
 
-  createRecipe(){
+  createRecipe() {
     this.navCtrl.push(NewRecipePage);
-
+  }
   navEditRecipe() {
     this.navCtrl.push(RecipeDetailPage);
 
   }
+
 }

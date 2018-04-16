@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import {DbApiService} from "../../shared/db-api.service";
+import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 
 /**
  * Generated class for the PerfilPage page.
@@ -36,4 +37,8 @@ export class PerfilPage {
     console.log('ionViewDidLoad PerfilPage');
   }
 
+
+  navEditRecipe() {
+    this.navCtrl.push(RecipeDetailPage);
+  }
 }

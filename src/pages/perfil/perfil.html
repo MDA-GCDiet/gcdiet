@@ -38,7 +38,7 @@
       <ion-col>
         <button ion-button icon-left clear small>
           <ion-icon name="text"></ion-icon>
-          <div>x Recipes</div>
+          <div>1 Recipe</div>
         </button>
       </ion-col>
       <ion-col center text-center>
@@ -87,7 +87,7 @@
             <p>
               {{recipe.ingredients}}
             </p>
-            <button ion-button secondary >MODIFICAR</button>
+            <button ion-button secondary (click)="navEditRecipe()">Editar</button>
           </ion-card-content>
         </ion-card>
       </ion-item>
