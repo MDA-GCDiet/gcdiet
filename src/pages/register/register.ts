@@ -3,7 +3,6 @@ import {AlertController, IonicPage, Loading, LoadingController, NavController, N
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from "../../models/user";
 import {AngularFireAuth} from "angularfire2/auth";
-import {LoginPage} from "../login/login";
 
 /**
  * Generated class for the RegisterPage page.
