@@ -4,6 +4,7 @@ import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
 import {MapPage} from "../map/map";
+import { EditRecipePage } from '../edit-recipe/edit-recipe';
 
 /**
  * Generated class for the RecipesPage page.
@@ -62,5 +63,9 @@ export class RecipesPage {
 
   navMap(){
     this.navCtrl.push(MapPage);
+  }
+
+  navEditRecipe() {
+    this.navCtrl.push(RecipeDetailPage);
   }
 }
