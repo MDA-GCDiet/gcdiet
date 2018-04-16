@@ -19,7 +19,9 @@ import {LoginPage} from "../pages/login/login";
 import {MapPage} from "../pages/map/map";
 import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
+import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
+
 
 
 export const FirebaseConfig = {
@@ -41,8 +43,8 @@ export const FirebaseConfig = {
     LoginPage,
     MapPage,
     RegisterPage,
+    NewRecipePage
     PerfilPage
-
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ export const FirebaseConfig = {
     LoginPage,
     MapPage,
     RegisterPage,
+    NewRecipePage
     PerfilPage
   ],
   providers: [
