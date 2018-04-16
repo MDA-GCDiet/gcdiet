@@ -3,7 +3,6 @@ import {AlertController, IonicPage, Loading, LoadingController, NavController, N
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from "../../models/user";
 import {AngularFireAuth} from "angularfire2/auth";
-import {LoginPage} from "../login/login";
 
 /**
  * Generated class for the RegisterPage page.
@@ -38,17 +37,11 @@ export class RegisterPage {
 
   private createMyForm() {
     return this.formBuilder.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
       email: ['', Validators.required],
-      height: ['', Validators.required],
-      weight: ['', Validators.required],
-      dateBirth: ['', Validators.required],
       passwordRetry: this.formBuilder.group({
         password: ['', Validators.required],
         passwordConfirmation: ['', Validators.required]
       }),
-      gender: ['', Validators.required],
     });
   }
 
