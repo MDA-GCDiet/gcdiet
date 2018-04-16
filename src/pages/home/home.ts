@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {RecipesPage} from "../recipes/recipes";
-import {UserPage} from "../user/user";
 import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
 import {User} from "../../models/user";
 import {PerfilPage} from "../perfil/perfil";
+
 
 @IonicPage()
 @Component({
@@ -28,6 +28,7 @@ export class HomePage {
       this.usuario = data;
       // console.log(data.email);
       if (data && data.email && data.uid) {
+
         this.toast.create({
           message: `Welcome to APP_NAME, ${data.email}`,
           duration: 3000

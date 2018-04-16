@@ -6,13 +6,33 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>NewRecipe</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Nueva Receta</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <form [formGroup]="myForm">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="nombre"></ion-icon>
+        <ion-label stacked>Nombre:</ion-label>
+        <ion-input formControlName="name" type="text" placeholder="Nombre" [(ngModel)]="recipe.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="tag"></ion-icon>
+        <ion-label stacked>Tag:</ion-label>
+        <ion-input formControlName="tag" type="text" placeholder="Tag" [(ngModel)]="recipe.tag"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ingredients"></ion-icon>
+        <ion-label stacked>Ingredientes:</ion-label>
+        <ion-input formControlName="ingredients" type="text" placeholder="Ingredientes" [(ngModel)]="recipe.ingredients"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div>
+      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="goHome()">Guardar</button>
+    </div>
+  </form>
 </ion-content>
