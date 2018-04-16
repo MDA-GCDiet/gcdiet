@@ -3,6 +3,9 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {RecipesPage} from "../recipes/recipes";
 import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
+import {User} from "../../models/user";
+import {PerfilPage} from "../perfil/perfil";
+
 
 @IonicPage()
 @Component({
@@ -23,8 +26,9 @@ export class HomePage {
   ionViewWillLoad(){
     this.afAuth.authState.subscribe(data => {
       this.usuario = data;
-      console.log(data);
-      if (data) {
+      // console.log(data.email);
+      if (data && data.email && data.uid) {
+
         this.toast.create({
           message: `Welcome to APP_NAME, ${data.email}`,
           duration: 3000
@@ -49,6 +53,14 @@ export class HomePage {
 
   navRecipes(){
     this.navCtrl.push(RecipesPage);
+  }
+
+  navPerfil(){
+    this.navCtrl.push(PerfilPage);
+  }
+
+  navUsers(){
+    this.navCtrl.push(UserPage);
   }
 
 }

@@ -7,6 +7,9 @@ import {MapPage} from "../map/map";
 import {AngularFireAuth} from "angularfire2/auth";
 import {NewRecipePage} from "../new-recipe/new-recipe";
 
+import { EditRecipePage } from '../edit-recipe/edit-recipe';
+
+
 /**
  * Generated class for the RecipesPage page.
  *
@@ -75,7 +78,12 @@ export class RecipesPage {
     this.navCtrl.push(MapPage);
   }
 
+
   createRecipe(){
     this.navCtrl.push(NewRecipePage);
+
+  navEditRecipe() {
+    this.navCtrl.push(RecipeDetailPage);
+
   }
 }
