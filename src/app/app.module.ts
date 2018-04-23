@@ -16,9 +16,12 @@ import {DbApiService} from "../shared/db-api.service";
 import {UserService} from "../shared/user-service";
 import {UserPage} from "../pages/user/user";
 import {LoginPage} from "../pages/login/login";
-import {AgmCoreModule} from "@agm/core";
 import {MapPage} from "../pages/map/map";
-import {MyFormPage} from "../pages/form/form";
+import {RegisterPage} from "../pages/register/register";
+import {AgmCoreModule} from "@agm/core"
+import {NewRecipePage} from "../pages/new-recipe/new-recipe";
+import {PerfilPage} from "../pages/perfil/perfil";
+
 
 
 export const FirebaseConfig = {
@@ -39,7 +42,9 @@ export const FirebaseConfig = {
     UserPage,
     LoginPage,
     MapPage,
-    MyFormPage
+    RegisterPage,
+    NewRecipePage,
+    PerfilPage
   ],
   imports: [
     BrowserModule,
@@ -58,8 +63,9 @@ export const FirebaseConfig = {
     UserPage,
     LoginPage,
     MapPage,
-    MyFormPage
-
+    RegisterPage,
+    NewRecipePage,
+    PerfilPage
   ],
   providers: [
     StatusBar,

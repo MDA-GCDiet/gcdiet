@@ -5,14 +5,34 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>register</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Formulario</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <form [formGroup]="myForm">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="mail" item-start></ion-icon>
+        <ion-label stacked>Correo electronico:</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Email" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <div formGroupName="passwordRetry">
+        <ion-item>
+          <ion-icon name="eye" item-start></ion-icon>
+          <ion-label stacked>Contraseña:</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Contraseña" [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="eye" item-start></ion-icon>
+          <ion-label stacked>Confirmar contraseña:</ion-label>
+          <ion-input formControlName="passwordConfirmation" type="password" placeholder="Confirmar contraseña"></ion-input>
+        </ion-item>
+      </div>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="register(user)">Guardar</button>
+    </div>
+  </form>
 </ion-content>

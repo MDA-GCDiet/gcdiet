@@ -15,7 +15,9 @@
 
 <ion-content padding>
 
-
+  <button *ngIf="usuario" ion-button (click)="createRecipe()">
+    Crear receta
+  </button>
   <ion-card *ngFor="let recipe of recipes">
     <img src="/assets/imgs/tortilla.jpg"/>
     <ion-card-content>
