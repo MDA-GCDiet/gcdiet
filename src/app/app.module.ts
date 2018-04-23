@@ -21,7 +21,7 @@ import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
 import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
-
+import { NgCalendarModule } from "ionic2-calendar";
 
 
 export const FirebaseConfig = {
@@ -48,6 +48,7 @@ export const FirebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    NgCalendarModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireDatabaseModule,
