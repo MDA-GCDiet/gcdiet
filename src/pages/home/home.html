@@ -28,6 +28,8 @@
   </p>
 
   <button ion-button secondary (click)="navRecipes()">Recetas</button>
+  <button ion-button secondary *ngIf="usuario.email=='admin@admin.admin'" (click)="navFood()">Alimentos
+  </button>
 
 
   <!--<button ion-button secondary (click)="navUsers()">Usuarios</button>-->

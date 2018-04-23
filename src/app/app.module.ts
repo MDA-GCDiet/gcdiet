@@ -21,6 +21,7 @@ import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
 import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
+import {FoodPage} from "../pages/food/food";
 
 
 
@@ -44,7 +45,8 @@ export const FirebaseConfig = {
     MapPage,
     RegisterPage,
     NewRecipePage,
-    PerfilPage
+    PerfilPage,
+    FoodPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,8 @@ export const FirebaseConfig = {
     MapPage,
     RegisterPage,
     NewRecipePage,
-    PerfilPage
+    PerfilPage,
+    FoodPage
   ],
   providers: [
     StatusBar,

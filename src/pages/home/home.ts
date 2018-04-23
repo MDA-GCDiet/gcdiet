@@ -5,6 +5,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
 import {User} from "../../models/user";
 import {PerfilPage} from "../perfil/perfil";
+import { FoodPage } from '../food/food';
 
 
 @IonicPage()
@@ -59,8 +60,8 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-  navUsers(){
-    this.navCtrl.push(UserPage);
-  }
-
+  navFood(){
+    this.navCtrl.push(FoodPage);
+ }
+ 
 }
