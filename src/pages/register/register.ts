@@ -19,29 +19,12 @@ export class RegisterPage {
   myForm: FormGroup;
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public formBuilder: FormBuilder) {
-    this.myForm = this.createMyForm();
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  private createMyForm() {
-    return this.formBuilder.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      height: ['', Validators.required],
-      weight: ['', Validators.required],
-      dateBirth: ['', Validators.required],
-      passwordRetry: this.formBuilder.group({
-        password: ['', Validators.required],
-        passwordConfirmation: ['', Validators.required]
-      }),
-      gender: ['', Validators.required],
-    });
 
-  }
 }
