@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {Calendar} from "@ionic-native/calendar";
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
@@ -21,8 +22,7 @@ import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
 import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
-import { NgCalendarModule } from "ionic2-calendar";
-
+import {CalendarPage} from "../pages/calendar/calendar";
 
 export const FirebaseConfig = {
   apiKey: "AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs",
@@ -44,11 +44,11 @@ export const FirebaseConfig = {
     MapPage,
     RegisterPage,
     NewRecipePage,
-    PerfilPage
+    PerfilPage,
+    CalendarPage
   ],
   imports: [
     BrowserModule,
-    NgCalendarModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireDatabaseModule,
@@ -66,7 +66,8 @@ export const FirebaseConfig = {
     MapPage,
     RegisterPage,
     NewRecipePage,
-    PerfilPage
+    PerfilPage,
+    CalendarPage
   ],
   providers: [
     StatusBar,
@@ -74,7 +75,8 @@ export const FirebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireDatabase,
     DbApiService,
-    UserService
+    UserService,
+    Calendar
   ]
 })
 export class AppModule {

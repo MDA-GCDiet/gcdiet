@@ -104,19 +104,7 @@
     </ion-list>
   </div>
 
-<ion-buttons end>
-  <button ion-button icon-only (click)="addEvent()">
-    <ion-icon name="add"></ion-icon>
-  </button>
-</ion-buttons>
-
-<calendar [eventSource]="eventSource"
-          [calendarMode]="calendar.mode"
-          [currentDate]="calendar.currentDate"
-          (onEventSelected)="onEventSelected($event)"
-          (onTitleChanged)="onViewTitleChanged($event)"
-          (onTimeSelected)="onTimeSelected($event)"
-          step="30"
-          class="calendar">
-</calendar>
+  <div>
+    <button ion-button secondary (click)="navCalendar()">Calendario</button>
+  </div>
 </ion-content>
