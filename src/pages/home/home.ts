@@ -6,6 +6,8 @@ import {LoginPage} from "../login/login";
 import {User} from "../../models/user";
 import {PerfilPage} from "../perfil/perfil";
 
+import { SocialSharing} from "@ionic-native/social-sharing";
+
 
 @IonicPage()
 @Component({
@@ -19,7 +21,8 @@ export class HomePage {
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              private socialsharing: SocialSharing){
 
   }
 
@@ -59,8 +62,13 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-  navUsers(){
-    this.navCtrl.push(UserPage);
+  facebookshare(fbmsg){
+    this.socialsharing.shareViaFacebook('hola', null, null)
+      .then(() =>{
+        console.log("yes");
+      }).catch((error) =>{
+        console.log("failed posting");
+    })
   }
 
 }
