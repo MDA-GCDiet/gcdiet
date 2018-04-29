@@ -17,8 +17,9 @@ import {UserService} from "../shared/user-service";
 import {UserPage} from "../pages/user/user";
 import {LoginPage} from "../pages/login/login";
 import {MapPage} from "../pages/map/map";
+import { SocialSharing } from '@ionic-native/social-sharing';
 import {RegisterPage} from "../pages/register/register";
-import {AgmCoreModule} from "@agm/core"
+import {AgmCoreModule} from "@agm/core";
 import {ProfilePage} from "../pages/profile/profile";
 
 
@@ -69,6 +70,7 @@ export const FirebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireDatabase,
     DbApiService,
+    SocialSharing,
     UserService
   ]
 })

@@ -3,6 +3,7 @@ import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
 
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
+import { SocialSharing } from '@ionic-native/social-sharing';
 import {MapPage} from "../map/map";
 
 /**
@@ -25,8 +26,12 @@ export class RecipesPage {
   recipes = [];
   fruits = [];
   ingredients = [];
+
+  titulo:string=null;
+  ingredientes:string=null;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              private socialSharing: SocialSharing,
               private dbapi: DbApiService) {
 
   }
@@ -62,4 +67,15 @@ export class RecipesPage {
   navMap(){
     this.navCtrl.push(MapPage);
   }
+  shareViaFacebook(tit:string){
+    this.titulo=tit;
+
+    this.socialSharing.share(this.titulo)
+      .then(()=>{
+
+      }).catch(()=>{
+
+    });
+  }
+
 }
