@@ -3,7 +3,6 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {RecipesPage} from "../recipes/recipes";
 import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
-import {User} from "../../models/user";
 import {PerfilPage} from "../perfil/perfil";
 
 import {DbApiService} from "../../shared/db-api.service";
@@ -72,17 +71,13 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-  // navUsers(){
-  //   this.navCtrl.push(User);
-  // }
 
   navMap(){
     this.navCtrl.push(MapPage);
   }
 
 
-<<<<<<< HEAD
-=======
+
   facebookshare(fbmsg){
     this.socialSharing.shareViaFacebook('hola', null, null)
       .then(() =>{
@@ -92,5 +87,4 @@ export class HomePage {
     })
   }
 
->>>>>>> develop
 }

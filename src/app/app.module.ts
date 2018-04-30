@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {Calendar} from "@ionic-native/calendar";
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
@@ -21,12 +22,12 @@ import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
 import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
-<<<<<<< HEAD
-import {FoodPage} from "../pages/food/food";
-=======
-import { SocialSharing } from "@ionic-native/social-sharing";
->>>>>>> develop
 
+import {CalendarPage} from "../pages/calendar/calendar";
+
+import {FoodPage} from "../pages/food/food";
+
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 
 export const FirebaseConfig = {
@@ -50,7 +51,9 @@ export const FirebaseConfig = {
     RegisterPage,
     NewRecipePage,
     PerfilPage,
+    CalendarPage,
     FoodPage
+
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,9 @@ export const FirebaseConfig = {
     RegisterPage,
     NewRecipePage,
     PerfilPage,
+    CalendarPage,
     FoodPage
+
   ],
   providers: [
     StatusBar,
@@ -81,8 +86,11 @@ export const FirebaseConfig = {
     AngularFireDatabase,
     DbApiService,
     UserService,
+    Calendar,
     SocialSharing
+
   ]
 })
+
 export class AppModule {
 }
