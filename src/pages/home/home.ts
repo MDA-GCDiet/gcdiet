@@ -10,6 +10,8 @@ import {MapPage} from "../map/map";
 import { SocialSharing } from "@ionic-native/social-sharing";
 
 
+import { SocialSharing} from "@ionic-native/social-sharing";
+
 
 @IonicPage()
 @Component({
@@ -25,8 +27,10 @@ export class HomePage {
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
+
               public navParams: NavParams, private dbapi: DbApiService,
               private socialSharing: SocialSharing) {
+
 
   }
 
@@ -71,9 +75,6 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-  // navUsers(){
-  //   this.navCtrl.push(User);
-  // }
 
   navMap(){
     this.navCtrl.push(MapPage);
@@ -88,5 +89,6 @@ export class HomePage {
       console.log("failed posting");
     })
   }
+
 
 }

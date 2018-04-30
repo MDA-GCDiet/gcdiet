@@ -27,6 +27,16 @@
       <p>
         {{recipe.ingredients}}
       </p>
+
+      <ion-row>
+        <ion-col>
+          <button ion-fab (click)="facebookshare(recipe.name,recipe.ingredients)">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+
+
       <button ion-button secondary (click)="navMap()">MAPA</button>
 
     </ion-card-content>
@@ -44,5 +54,6 @@
       </ion-item-divider>
     </ion-item-group>
   </ion-list>
+
 
 </ion-content>
