@@ -21,6 +21,7 @@ import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
 import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 
 
@@ -73,7 +74,8 @@ export const FirebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireDatabase,
     DbApiService,
-    UserService
+    UserService,
+    SocialSharing
   ]
 })
 export class AppModule {

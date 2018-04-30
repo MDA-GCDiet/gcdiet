@@ -35,7 +35,15 @@
       <ion-buttons end class="a">
       <button ion-button small (click)="navMap()">MAPA</button>
 
-        <button ion-button small color="danger" round outline>Share</button>
+        <!--<button ion-button small color="danger" round outline>Share</button>-->
+
+        <ion-row>
+          <ion-col>
+            <button ion-fab (click)="facebookshare()">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
       </ion-buttons>
     </ion-card-content>
   </ion-card>
