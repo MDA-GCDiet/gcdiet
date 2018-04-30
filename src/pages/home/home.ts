@@ -21,8 +21,8 @@ export class HomePage {
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
-              public navParams: NavParams,
-              private socialsharing: SocialSharing){
+              public navParams: NavParams
+              ){
 
   }
 
@@ -62,13 +62,6 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-  facebookshare(fbmsg){
-    this.socialsharing.shareViaFacebook('hola', null, null)
-      .then(() =>{
-        console.log("yes");
-      }).catch((error) =>{
-        console.log("failed posting");
-    })
-  }
+
 
 }
