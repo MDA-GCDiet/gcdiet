@@ -5,7 +5,9 @@ import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
 import {User} from "../../models/user";
 import {PerfilPage} from "../perfil/perfil";
-import { FoodPage } from '../food/food';
+
+import {DbApiService} from "../../shared/db-api.service";
+import {MapPage} from "../map/map";
 
 
 @IonicPage()
@@ -16,11 +18,13 @@ import { FoodPage } from '../food/food';
 export class HomePage {
 
   usuario = {};
+  recipes = [];
+  ingredients = [];
 
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
-              public navParams: NavParams) {
+              public navParams: NavParams, private dbapi: DbApiService) {
 
   }
 
@@ -31,11 +35,17 @@ export class HomePage {
       if (data && data.email && data.uid) {
 
         this.toast.create({
-          message: `Welcome to APP_NAME, ${data.email}`,
+          message: `Welcome to GC_Diet, ${data.email}`,
           duration: 3000
         }).present();
       }
     });
+
+    this.dbapi.getRecipes().subscribe(
+      (data) => this.recipes = data
+    );
+
+    this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
   }
 
   goToLogin() {
@@ -60,8 +70,13 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-  navFood(){
-    this.navCtrl.push(FoodPage);
- }
- 
+  // navUsers(){
+  //   this.navCtrl.push(User);
+  // }
+
+  navMap(){
+    this.navCtrl.push(MapPage);
+  }
+
+
 }
