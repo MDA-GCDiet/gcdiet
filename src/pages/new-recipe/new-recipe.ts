@@ -38,4 +38,10 @@ export class NewRecipePage {
     });
   }
 
+
+  goHome(){
+    this.navCtrl.popToRoot();
+  }
+
+
 }
