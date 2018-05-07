@@ -6,6 +6,7 @@ import {DbApiService} from "../../shared/db-api.service";
 import {MapPage} from "../map/map";
 import {AngularFireAuth} from "angularfire2/auth";
 import {NewRecipePage} from "../new-recipe/new-recipe";
+import {SocialSharing} from "@ionic-native/social-sharing";
 
 import { EditRecipePage } from '../edit-recipe/edit-recipe';
 
@@ -34,7 +35,8 @@ export class RecipesPage {
   constructor(private afAuth: AngularFireAuth,
               public navCtrl: NavController,
               public navParams: NavParams,
-              private dbapi: DbApiService) {
+              private dbapi: DbApiService,
+              private socialsharing: SocialSharing) {
 
   }
 
@@ -85,6 +87,15 @@ export class RecipesPage {
   navEditRecipe() {
     this.navCtrl.push(RecipeDetailPage);
 
+  }
+
+  facebookshare(title,descr){
+    this.socialsharing.shareViaFacebook(title,descr)
+      .then(() =>{
+        console.log("yes");
+      }).catch((error) =>{
+      console.log("failed posting");
+    })
   }
 
 }

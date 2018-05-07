@@ -3,11 +3,14 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {RecipesPage} from "../recipes/recipes";
 import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
-import {User} from "../../models/user";
 import {PerfilPage} from "../perfil/perfil";
 
 import {DbApiService} from "../../shared/db-api.service";
 import {MapPage} from "../map/map";
+import { SocialSharing } from "@ionic-native/social-sharing";
+
+
+import { SocialSharing} from "@ionic-native/social-sharing";
 
 
 @IonicPage()
@@ -24,7 +27,10 @@ export class HomePage {
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
-              public navParams: NavParams, private dbapi: DbApiService) {
+
+              public navParams: NavParams, private dbapi: DbApiService,
+              private socialSharing: SocialSharing) {
+
 
   }
 
@@ -44,7 +50,6 @@ export class HomePage {
     this.dbapi.getRecipes().subscribe(
       (data) => this.recipes = data
     );
-
     this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
   }
 
@@ -70,12 +75,20 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-  // navUsers(){
-  //   this.navCtrl.push(User);
-  // }
 
   navMap(){
     this.navCtrl.push(MapPage);
+  }
+
+
+
+  facebookshare(fbmsg){
+    this.socialSharing.shareViaFacebook('hola', null, null)
+      .then(() =>{
+        console.log("yes");
+      }).catch((error) =>{
+      console.log("failed posting");
+    })
   }
 
 

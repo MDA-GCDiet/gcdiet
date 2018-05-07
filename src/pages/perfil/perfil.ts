@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import {DbApiService} from "../../shared/db-api.service";
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
+import {CalendarPage} from "../calendar/calendar";
 
 /**
  * Generated class for the PerfilPage page.
@@ -22,7 +23,10 @@ export class PerfilPage {
   recipes = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, private dbapi: DbApiService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private afAuth: AngularFireAuth,
+              private dbapi: DbApiService) {
   }
 
   ionViewDidLoad() {
@@ -41,4 +45,10 @@ export class PerfilPage {
   navEditRecipe() {
     this.navCtrl.push(RecipeDetailPage);
   }
+
+  navCalendar() {
+    this.navCtrl.push(CalendarPage);
+  }
+
 }
+
