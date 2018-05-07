@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DbApiService} from "../../shared/db-api.service";
 import { HomePage} from '../home/home';
 
 /**
@@ -21,7 +22,8 @@ export class FoodPage {
   ingredient = {};
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    private dbapi: DbApiService) {
     this.myForm = this.createMyForm();
 }
 
@@ -31,12 +33,15 @@ export class FoodPage {
   private createMyForm() {
     return this.formBuilder.group({
       calories: ['', Validators.required],
+      id: ['',Validators.required],
       name: ['', Validators.required],
       vitamins: ['', Validators.required],
     });
   }
 
   goHome(){
+    console.log(this.ingredient);
+    this.dbapi.pushIngredient(this.ingredient);
     this.navCtrl.popToRoot();
   }
 
