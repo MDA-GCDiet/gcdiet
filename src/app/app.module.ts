@@ -27,8 +27,10 @@ import {CalendarPage} from "../pages/calendar/calendar";
 
 import {FoodPage} from "../pages/food/food";
 import {SocialSharing} from "@ionic-native/social-sharing";
-import {AddEventPage} from "../pages/add-event/add-event";
+
 import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
+import {AddEventPage} from "../pages/add-event/add-event";
+
 
 export const FirebaseConfig = {
   apiKey: "AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs",

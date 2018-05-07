@@ -80,6 +80,10 @@ export class RecipesPage {
     this.navCtrl.push(MapPage);
   }
 
+  navEdit(recipe){
+    this.navCtrl.push(EditRecipePage, recipe);
+  }
+
 
   createRecipe() {
     this.navCtrl.push(NewRecipePage);
