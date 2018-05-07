@@ -31,6 +31,8 @@ export class RecipesPage {
   recipes = [];
   fruits = [];
   ingredients = [];
+  title: string = null;
+  description: string = null;
 
   constructor(private afAuth: AngularFireAuth,
               public navCtrl: NavController,
@@ -93,13 +95,24 @@ export class RecipesPage {
 
   }
 
-  facebookshare(title,descr){
-    this.socialsharing.shareViaFacebook(title,descr)
+  // facebookshare(title,descr){
+  //   this.socialsharing.shareViaFacebook(title,descr)
+  //     .then(() =>{
+  //       console.log("yes");
+  //     }).catch((error) =>{
+  //     console.log("failed posting");
+  //   })
+  // }
+
+
+  share(title,descr){
+    this.title=title;
+    this.description=descr;
+    this.socialsharing.share(this.title,this.description)
       .then(() =>{
-        console.log("yes");
+
       }).catch((error) =>{
-      console.log("failed posting");
+
     })
   }
-
 }
