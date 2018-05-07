@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DbApiService} from "../../shared/db-api.service";
 import {AngularFireAuth} from "angularfire2/auth";
+import {Camera, CameraOptions} from "@ionic-native/camera";
 
 /**
  * Generated class for the NewRecipePage page.
@@ -22,12 +23,14 @@ export class NewRecipePage {
   recipe = {};
   user = {};
   userEmail: string;
+  image: string = null;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public formBuilder: FormBuilder,
               private dbapi: DbApiService,
-              private afAuth: AngularFireAuth) {
+              private afAuth: AngularFireAuth,
+              private camera: Camera) {
     this.myForm = this.createMyForm();
   }
 
@@ -38,27 +41,47 @@ export class NewRecipePage {
       this.userEmail = data.email;
       // console.log(data.email);
 
-  });
+    });
   }
 
   private createMyForm() {
     return this.formBuilder.group({
       name: ['', Validators.required],
       tag: ['', Validators.required],
-      ingredients: ['', Validators.required],
+      ingredients: ['', Validators.required]
     });
   }
 
-  addRecipe(recipe){
+  addRecipe(recipe) {
     recipe.id = Date.now();
     recipe.user = this.userEmail;
     this.dbapi.pushRecipe(recipe);
     this.navCtrl.popToRoot();
   }
 
-  goHome(){
+  goHome() {
     this.navCtrl.popToRoot();
   }
 
+  getPicture() {
+    const options: CameraOptions = {
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      quality: 70,
+      targetWidth: 900,
+      targetHeight: 600,
+      saveToPhotoAlbum: false,
+      allowEdit: true,
+      sourceType: 1
+    };
+    this.camera.getPicture(options).then(
+      (imageData) => {
+        this.image = 'data:image/jpeg;base64,' + imageData;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
 }
