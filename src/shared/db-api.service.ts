@@ -3,8 +3,7 @@
 
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import {AngularFireDatabase, AngularFireList} from "angularfire2/database";
-import {FirebaseListObservable} from "angularfire2/database-deprecated";
+import {AngularFireDatabase} from "angularfire2/database";
 
 
 @Injectable()
@@ -34,9 +33,18 @@ export class DbApiService {
   pushRecipe(recipe, user){
     this.fb.list('recipes').push({
       name: recipe.name,
-      ingredient: recipe.ingredients,
+      ingredients: recipe.ingredients,
       tag: recipe.tag,
       user: user.email
+    });
+  }
+
+
+  editRecipe(recipe){
+    this.fb.list('recipes').update(recipe.key,{
+      name: recipe.name,
+      ingredients: recipe.ingredients,
+      tag: recipe.tag,
     });
   }
 

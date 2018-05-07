@@ -27,6 +27,7 @@ import {CalendarPage} from "../pages/calendar/calendar";
 
 import {FoodPage} from "../pages/food/food";
 import {SocialSharing} from "@ionic-native/social-sharing";
+import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
 
 
 
@@ -54,7 +55,8 @@ export const FirebaseConfig = {
     NewRecipePage,
     PerfilPage,
     CalendarPage,
-    FoodPage
+    FoodPage,
+    EditRecipePage
 
   ],
   imports: [
@@ -78,7 +80,8 @@ export const FirebaseConfig = {
     NewRecipePage,
     PerfilPage,
     CalendarPage,
-    FoodPage
+    FoodPage,
+    EditRecipePage
 
   ],
   providers: [
