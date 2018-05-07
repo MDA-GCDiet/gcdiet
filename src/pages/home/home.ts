@@ -10,8 +10,6 @@ import {MapPage} from "../map/map";
 import { SocialSharing } from "@ionic-native/social-sharing";
 
 
-import { SocialSharing} from "@ionic-native/social-sharing";
-
 
 @IonicPage()
 @Component({

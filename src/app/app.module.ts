@@ -26,8 +26,7 @@ import {PerfilPage} from "../pages/perfil/perfil";
 import {CalendarPage} from "../pages/calendar/calendar";
 
 import {FoodPage} from "../pages/food/food";
-
-import { SocialSharing } from "@ionic-native/social-sharing";
+import {SocialSharing} from "@ionic-native/social-sharing";
 
 
 
