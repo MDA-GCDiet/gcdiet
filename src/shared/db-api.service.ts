@@ -24,6 +24,9 @@ export class DbApiService {
   getRecipes(): Observable<any> {
     return this.fb.list('recipes').valueChanges();
   }
+  getIngredients(): Observable <any> {
+    return this.fb.list('alimentos').valueChanges();
+  }
 
   // getTournamentsData(tourneyId): Observable<any> {
   //   return this.fb.object(`tournaments-data/${tourneyId}`).valueChanges()
