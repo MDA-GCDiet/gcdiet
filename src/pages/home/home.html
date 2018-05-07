@@ -23,6 +23,8 @@
 
 <ion-content padding>
 
+  <button ion-button (click)="getPicture()">Take a picture</button>
+  <img [src]="image" *ngIf="image"/>
 
   <ion-card *ngFor="let recipe of recipes">
     <img src="/assets/imgs/tortilla.jpg"/>
@@ -44,8 +46,6 @@
 
 
       <button ion-button secondary (click)="navMap()">MAPA</button>
-      <button ion-button (click)="getPicture()">Take a picture</button>
-      <img [src]="image" *ngIf="image"/>
 
     </ion-card-content>
   </ion-card>

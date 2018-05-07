@@ -63,21 +63,16 @@ export class NewRecipePage {
     this.navCtrl.popToRoot();
   }
 
-  getPicture() {
+  getPicture(){
     const options: CameraOptions = {
       destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      quality: 70,
-      targetWidth: 900,
-      targetHeight: 600,
-      saveToPhotoAlbum: false,
-      allowEdit: true,
-      sourceType: 1
+      targetWidth: 1000,
+      targetHeight: 1000,
+      quality: 100
     };
-    this.camera.getPicture(options).then(
-      (imageData) => {
-        this.image = 'data:image/jpeg;base64,' + imageData;
+    this.camera.getPicture(options)
+      .then(imageData => {
+        this.image = `data:image/jpeg;base64,${imageData}`;
       })
       .catch(error => {
         console.log(error);
