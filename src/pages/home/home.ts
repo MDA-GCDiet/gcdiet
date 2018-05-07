@@ -5,6 +5,11 @@ import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
 import {PerfilPage} from "../perfil/perfil";
 
+import {DbApiService} from "../../shared/db-api.service";
+import {MapPage} from "../map/map";
+import { SocialSharing } from "@ionic-native/social-sharing";
+
+
 
 @IonicPage()
 @Component({
@@ -14,11 +19,16 @@ import {PerfilPage} from "../perfil/perfil";
 export class HomePage {
 
   usuario = {};
+  recipes = [];
+  ingredients = [];
 
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
-              public navParams: NavParams) {
+
+              public navParams: NavParams, private dbapi: DbApiService,
+              private socialSharing: SocialSharing) {
+
 
   }
 
@@ -29,11 +39,16 @@ export class HomePage {
       if (data && data.email && data.uid) {
 
         this.toast.create({
-          message: `Welcome to APP_NAME, ${data.email}`,
+          message: `Welcome to GC_Diet, ${data.email}`,
           duration: 3000
         }).present();
       }
     });
+
+    this.dbapi.getRecipes().subscribe(
+      (data) => this.recipes = data
+    );
+    this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
   }
 
   goToLogin() {
@@ -58,8 +73,21 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-  // navUsers(){
-  //   this.navCtrl.push(UserPage);
-  // }
+
+  navMap(){
+    this.navCtrl.push(MapPage);
+  }
+
+
+
+  facebookshare(fbmsg){
+    this.socialSharing.shareViaFacebook('hola', null, null)
+      .then(() =>{
+        console.log("yes");
+      }).catch((error) =>{
+      console.log("failed posting");
+    })
+  }
+
 
 }

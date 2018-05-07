@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DbApiService} from "../../shared/db-api.service";
+import {AngularFireAuth} from "angularfire2/auth";
 
 /**
  * Generated class for the NewRecipePage page.
@@ -18,15 +20,23 @@ export class NewRecipePage {
 
   myForm: FormGroup;
   recipe = {};
+  user = {};
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public formBuilder: FormBuilder) {
+              public formBuilder: FormBuilder,
+              private dbapi: DbApiService,
+              private afAuth: AngularFireAuth) {
     this.myForm = this.createMyForm();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewRecipePage');
+    this.afAuth.authState.subscribe(data => {
+      this.user = data;
+      // console.log(data.email);
+
+  });
   }
 
   private createMyForm() {
@@ -37,8 +47,14 @@ export class NewRecipePage {
     });
   }
 
+  addRecipe(recipe){
+    this.dbapi.pushRecipe(recipe, this.user);
+    this.navCtrl.popToRoot();
+  }
+
   goHome(){
     this.navCtrl.popToRoot();
   }
+
 
 }
