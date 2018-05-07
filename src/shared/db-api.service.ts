@@ -10,7 +10,7 @@ import {AngularFireDatabase} from "angularfire2/database";
 export class DbApiService {
   // currentTourney: any = [];
 
-  constructor(private fb: AngularFireDatabase) {
+  constructor(private fb: AngularFireDatabase,  private afDB: AngularFireDatabase) {
 
   }
 
@@ -26,27 +26,30 @@ export class DbApiService {
   getRecipes(): Observable<any> {
     return this.fb.list('recipes').valueChanges();
   }
+
+
   getIngredients(): Observable <any> {
     return this.fb.list('alimentos').valueChanges();
   }
 
-  pushRecipe(recipe, user){
-    this.fb.list('recipes').push({
-      name: recipe.name,
-      ingredients: recipe.ingredients,
-      tag: recipe.tag,
-      user: user.email
-    });
+
+
+  pushRecipe(recipe) {
+    this.afDB.database.ref('recipes/' + recipe.id).set(recipe);
   }
 
 
-  editRecipe(recipe){
-    this.fb.list('recipes').update(recipe.key,{
-      name: recipe.name,
-      ingredients: recipe.ingredients,
-      tag: recipe.tag,
-    });
-  }
+
+  // editRecipe(recipe, user){
+  //   this.fb.list(`recipes/${recipe.key}`).update({
+  //     name: recipe.name,
+  //     ingredient: recipe.ingredients,
+  //     tag: recipe.tag,
+  //     user: user.email
+  //
+  //   }, recipe.key);
+  // }
+
 
   //
   // editRecipe(recipe, user){

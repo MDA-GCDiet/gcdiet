@@ -21,6 +21,7 @@ export class NewRecipePage {
   myForm: FormGroup;
   recipe = {};
   user = {};
+  userEmail: string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -34,6 +35,7 @@ export class NewRecipePage {
     console.log('ionViewDidLoad NewRecipePage');
     this.afAuth.authState.subscribe(data => {
       this.user = data;
+      this.userEmail = data.email;
       // console.log(data.email);
 
   });
@@ -48,7 +50,9 @@ export class NewRecipePage {
   }
 
   addRecipe(recipe){
-    this.dbapi.pushRecipe(recipe, this.user);
+    recipe.id = Date.now();
+    recipe.user = this.userEmail;
+    this.dbapi.pushRecipe(recipe);
     this.navCtrl.popToRoot();
   }
 
