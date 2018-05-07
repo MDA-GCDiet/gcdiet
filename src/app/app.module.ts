@@ -23,8 +23,6 @@ import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
 import { SocialSharing } from "@ionic-native/social-sharing";
 
-import { SocialSharing } from "@ionic-native/social-sharing";
-
 
 
 export const FirebaseConfig = {
