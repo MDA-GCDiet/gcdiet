@@ -3,8 +3,8 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {RecipesPage} from "../recipes/recipes";
 import { AngularFireAuth } from "angularfire2/auth";
 import {LoginPage} from "../login/login";
-import {User} from "../../models/user";
 import {PerfilPage} from "../perfil/perfil";
+
 import {DbApiService} from "../../shared/db-api.service";
 import {MapPage} from "../map/map";
 import { SocialSharing } from "@ionic-native/social-sharing";
@@ -79,6 +79,7 @@ export class HomePage {
   navMap(){
     this.navCtrl.push(MapPage);
   }
+
 
 
   facebookshare(fbmsg){
