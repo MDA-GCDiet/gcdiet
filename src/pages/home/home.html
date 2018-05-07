@@ -30,24 +30,48 @@
       <ion-card-title>
         {{recipe.name}}
       </ion-card-title>
-      <p class="verde">
-        {{recipe.ingredients.charAt(0).toUpperCase() + recipe.ingredients.substring(1).toLowerCase()}}
+      <p>
+        {{recipe.ingredients}}
       </p>
-      <ion-buttons end class="a">
-      <button ion-button small (click)="navMap()">MAPA</button>
 
-        <!--<button ion-button small color="danger" round outline>Share</button>-->
+      <ion-row>
+        <ion-col>
+          <button ion-fab (click)="facebookshare(recipe.name,recipe.ingredients)">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <button ion-fab (click)="facebookshare()">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </button>
-          </ion-col>
-        </ion-row>
-      </ion-buttons>
+
+      <button ion-button secondary (click)="navMap()">MAPA</button>
+
     </ion-card-content>
   </ion-card>
+
+  <!--<ion-card *ngFor="let recipe of recipes">-->
+    <!--<img src="/assets/imgs/tortilla.jpg"/>-->
+    <!--<ion-card-content>-->
+      <!--<ion-card-title>-->
+        <!--{{recipe.name}}-->
+      <!--</ion-card-title>-->
+      <!--<p class="verde">-->
+        <!--{{recipe.ingredients.charAt(0).toUpperCase() + recipe.ingredients.substring(1).toLowerCase()}}-->
+      <!--</p>-->
+      <!--<ion-buttons end class="a">-->
+      <!--<button ion-button small (click)="navMap()">MAPA</button>-->
+
+        <!--&lt;!&ndash;<button ion-button small color="danger" round outline>Share</button>&ndash;&gt;-->
+
+        <!--<ion-row>-->
+          <!--<ion-col>-->
+            <!--<button ion-fab (click)="facebookshare()">-->
+              <!--<ion-icon name="logo-facebook"></ion-icon>-->
+            <!--</button>-->
+          <!--</ion-col>-->
+        <!--</ion-row>-->
+      <!--</ion-buttons>-->
+    <!--</ion-card-content>-->
+  <!--</ion-card>-->
 
 
   <!--<ion-card *ngFor="let recipe of recipes">-->
