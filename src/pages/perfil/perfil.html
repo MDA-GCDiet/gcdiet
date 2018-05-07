@@ -69,6 +69,9 @@
       <ion-segment-button value="favoritas">
         Favoritas
       </ion-segment-button>
+      <ion-segment-button value="ingredientes" *ngIf="usuario.email=='admin@admin.admin'">
+        Ingredientes
+      </ion-segment-button>
     </ion-segment>
   </div>
 
@@ -103,9 +106,35 @@
       </ion-item>
 
     </ion-list>
+
+
+      <ion-list *ngSwitchCase="'ingredientes'" >
+          <div>
+              <button ion-button secondary (click)="navFood()">Añadir</button>
+          </div>
+        <ion-item *ngFor="let ingredient of ingredients">
+          
+          <ion-card>
+            <ion-card-content >
+              <ion-card-title>
+                {{ingredient.name}}
+              </ion-card-title>
+              <p>
+                ID: {{ingredient.id}}
+              </p>
+              <p>Calorías: {{ingredient.energetic_value}}</p>
+              <p>Vitaminas: {{ingredient.vitamins}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+        <div>
+            <button ion-button secondary (click)="navFood()">Añadir</button>
+          </div>
+      </ion-list>
   </div>
 
   <div>
     <button ion-button secondary (click)="navCalendar()">Calendario</button>
   </div>
+  
 </ion-content>
