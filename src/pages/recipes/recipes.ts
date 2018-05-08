@@ -3,6 +3,7 @@ import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
 
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
+import { SocialSharing } from '@ionic-native/social-sharing';
 import {MapPage} from "../map/map";
 import {AngularFireAuth} from "angularfire2/auth";
 import {NewRecipePage} from "../new-recipe/new-recipe";
