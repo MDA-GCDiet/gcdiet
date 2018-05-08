@@ -1,18 +1,39 @@
 <!--
-  Generated template for the EditRecipePage page.
+  Generated template for the NewRecipePage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>edit-recipe</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Editar Receta</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <form [formGroup]="myForm">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="nombre"></ion-icon>
+        <ion-label stacked>Nombre:</ion-label>
+        <ion-input formControlName="name" type="text" placeholder="Nombre" [(ngModel)]="recipe.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="tag"></ion-icon>
+        <ion-label stacked>Tag:</ion-label>
+        <ion-input formControlName="tag" type="text" placeholder="Tag" [(ngModel)]="recipe.tag"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ingredients"></ion-icon>
+        <ion-label stacked>Ingredientes:</ion-label>
+        <ion-input formControlName="ingredients" type="text" placeholder="Ingredientes" [(ngModel)]="recipe.ingredients"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div>
+      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="editRecipe(recipe)">Guardar</button>
+    </div>
+  </form>
 </ion-content>

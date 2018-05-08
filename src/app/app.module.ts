@@ -20,18 +20,18 @@ import {LoginPage} from "../pages/login/login";
 import {MapPage} from "../pages/map/map";
 import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
+
 import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
 
 import {CalendarPage} from "../pages/calendar/calendar";
-
 import {FoodPage} from "../pages/food/food";
+import {SocialSharing} from "@ionic-native/social-sharing";
 
-import { SocialSharing } from "@ionic-native/social-sharing";
+import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
+import {AddEventPage} from "../pages/add-event/add-event";
 
-
-
-
+import {Camera} from "@ionic-native/camera";
 
 export const FirebaseConfig = {
   apiKey: "AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs",
@@ -55,7 +55,9 @@ export const FirebaseConfig = {
     NewRecipePage,
     PerfilPage,
     CalendarPage,
-    FoodPage
+    FoodPage,
+    AddEventPage,
+    EditRecipePage
 
   ],
   imports: [
@@ -79,7 +81,9 @@ export const FirebaseConfig = {
     NewRecipePage,
     PerfilPage,
     CalendarPage,
-    FoodPage
+    FoodPage,
+    AddEventPage,
+    EditRecipePage
 
   ],
   providers: [
@@ -90,8 +94,8 @@ export const FirebaseConfig = {
     DbApiService,
     UserService,
     Calendar,
-    SocialSharing
-
+    SocialSharing,
+    Camera
   ]
 })
 
