@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="secondary">
     <ion-title>Nueva Receta</ion-title>
   </ion-navbar>
 
@@ -35,7 +35,7 @@
       <button ion-button (click)="getPicture()">Take a picture</button>
     </div>
     <div>
-      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="addRecipe(recipe)">Guardar</button>
+      <button ion-button color="secondary" round outline type="submit" [disabled]="!myForm.valid" (click)="addRecipe(recipe)">Guardar</button>
     </div>
   </form>
   <p align="center"><img src="{{image}}"></p>
