@@ -23,6 +23,7 @@ export class RegisterPage {
   public loading: Loading;
 
   constructor(public navCtrl: NavController,
+
               public navParams: NavParams,
               public formBuilder: FormBuilder,
               private afAuth: AngularFireAuth,
