@@ -52,8 +52,10 @@ export class LoginPage {
       this.loading.present();
   }
 
+
   logout() {
     this.afAuth.auth.signOut();
+
   }
 
   SignUp() {
