@@ -32,7 +32,11 @@
       </ion-item>
     </ion-list>
     <div>
-      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="goHome()">Guardar</button>
+      <button ion-button (click)="getPicture()">Take a picture</button>
+    </div>
+    <div>
+      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="addRecipe(recipe)">Guardar</button>
     </div>
   </form>
+  <p align="center"><img src="{{image}}"></p>
 </ion-content>

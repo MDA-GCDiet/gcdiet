@@ -22,15 +22,12 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-x-socialsharing": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-sqlite-storage": {
+    "cordova-plugin-camera": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {
-    "es6-promise-plugin": {
+    "cordova-plugin-calendar": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   }

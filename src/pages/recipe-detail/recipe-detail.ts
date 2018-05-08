@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, Loading, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from "../../models/user";
-import {AngularFireAuth} from "angularfire2/auth";
-import {LoginPage} from "../login/login";
 
 import { RecipesPage} from '../recipes/recipes';
 
@@ -29,7 +27,6 @@ export class RecipeDetailPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
-    private afAuth: AngularFireAuth,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController) {
 this.myForm = this.createMyForm();
