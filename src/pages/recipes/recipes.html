@@ -6,15 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title color="secondary">Recipes</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Recipes</ion-title>
+
+    <ion-buttons end>
+      <button *ngIf="usuario" ion-button (click)="createRecipe()"><ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
 
   <ion-card *ngFor="let recipe of recipes">
     <img src="/assets/imgs/tortilla.jpg"/>
@@ -25,9 +30,27 @@
       <p>
         {{recipe.ingredients}}
       </p>
-      <button ion-button secondary (click)="navMap()">MAPA</button>
-      <button ion-button full (click)="shareViaFacebook(recipe.name)">COMPARTIR</button>
 
+      <!--<ion-row>-->
+        <!--<ion-col>-->
+          <!--<button ion-fab (click)="facebookshare(recipe.name,recipe.ingredients)">-->
+            <!--<ion-icon name="logo-facebook"></ion-icon>-->
+          <!--</button>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+
+      <ion-row>
+        <ion-col>
+
+        </ion-col>
+      </ion-row>
+      <ion-buttons>
+        <span>
+          <button ion-button small color="secondary" round outline (click)="share(recipe.name,recipe.ingredients)">Compartir</button>
+          <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
+          <button ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
+        </span>
+      </ion-buttons>
     </ion-card-content>
   </ion-card>
 
@@ -43,5 +66,6 @@
       </ion-item-divider>
     </ion-item-group>
   </ion-list>
+
 
 </ion-content>

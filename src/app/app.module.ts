@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {Calendar} from "@ionic-native/calendar";
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
@@ -11,7 +12,7 @@ import {RecipeDetailPage} from "../pages/recipe-detail/recipe-detail";
 import {RecipesPage} from "../pages/recipes/recipes";
 import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireModule} from "angularfire2";
-import {AngularFireAuthModule} from "angularfire2/auth";
+import {AngularFireAuthModule} from "angularfire2/auth/auth.module";
 import {DbApiService} from "../shared/db-api.service";
 import {UserService} from "../shared/user-service";
 import {UserPage} from "../pages/user/user";
@@ -19,9 +20,19 @@ import {LoginPage} from "../pages/login/login";
 import {MapPage} from "../pages/map/map";
 import { SocialSharing } from '@ionic-native/social-sharing';
 import {RegisterPage} from "../pages/register/register";
-import {AgmCoreModule} from "@agm/core";
-import {ProfilePage} from "../pages/profile/profile";
+import {AgmCoreModule} from "@agm/core"
 
+import {NewRecipePage} from "../pages/new-recipe/new-recipe";
+import {PerfilPage} from "../pages/perfil/perfil";
+
+import {CalendarPage} from "../pages/calendar/calendar";
+import {FoodPage} from "../pages/food/food";
+import {SocialSharing} from "@ionic-native/social-sharing";
+
+import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
+import {AddEventPage} from "../pages/add-event/add-event";
+
+import {Camera} from "@ionic-native/camera";
 
 export const FirebaseConfig = {
   apiKey: "AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs",
@@ -42,7 +53,13 @@ export const FirebaseConfig = {
     LoginPage,
     MapPage,
     RegisterPage,
-    ProfilePage
+    NewRecipePage,
+    PerfilPage,
+    CalendarPage,
+    FoodPage,
+    AddEventPage,
+    EditRecipePage
+
   ],
   imports: [
     BrowserModule,
@@ -62,7 +79,13 @@ export const FirebaseConfig = {
     LoginPage,
     MapPage,
     RegisterPage,
-    ProfilePage
+    NewRecipePage,
+    PerfilPage,
+    CalendarPage,
+    FoodPage,
+    AddEventPage,
+    EditRecipePage
+
   ],
   providers: [
     StatusBar,
@@ -70,9 +93,12 @@ export const FirebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireDatabase,
     DbApiService,
+    UserService,
+    Calendar,
     SocialSharing,
-    UserService
+    Camera
   ]
 })
+
 export class AppModule {
 }

@@ -5,6 +5,12 @@ import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
 import { SocialSharing } from '@ionic-native/social-sharing';
 import {MapPage} from "../map/map";
+import {AngularFireAuth} from "angularfire2/auth";
+import {NewRecipePage} from "../new-recipe/new-recipe";
+import {SocialSharing} from "@ionic-native/social-sharing";
+
+import { EditRecipePage } from '../edit-recipe/edit-recipe';
+
 
 /**
  * Generated class for the RecipesPage page.
@@ -22,21 +28,28 @@ export class RecipesPage {
 
   @ViewChild(Nav) nav: Nav;
 
-
+  usuario = {};
   recipes = [];
   fruits = [];
   ingredients = [];
+  title: string = null;
+  description: string = null;
 
-  titulo:string=null;
-  ingredientes:string=null;
-  constructor(public navCtrl: NavController,
+  constructor(private afAuth: AngularFireAuth,
+              public navCtrl: NavController,
               public navParams: NavParams,
-              private socialSharing: SocialSharing,
-              private dbapi: DbApiService) {
+              private dbapi: DbApiService,
+              private socialsharing: SocialSharing) {
 
   }
 
   ionViewDidLoad() {
+
+    this.afAuth.authState.subscribe(data => {
+      this.usuario = data;
+      console.log(data);
+    });
+
     console.log('ionViewDidLoad RecipesPage');
 
     this.dbapi.getRecipes().subscribe(
@@ -48,18 +61,20 @@ export class RecipesPage {
   }
 
   viewFruits(){
-    this.dbapi.getFruits().subscribe(
+    const a = this.dbapi.getFruits().subscribe(
       (data) => this.fruits = data
     );
+    console.log(a);
   }
 
-  navRecipeDetail(recipe){
-    this.navCtrl.push(RecipeDetailPage, recipe);
-  }
+  // navRecipeDetail(recipe){
+  //   this.navCtrl.push(RecipeDetailPage, recipe);
+  // }
 
   goToRecipes(){
     this.nav.push(RecipesPage);
   }
+
   goHome(){
     this.navCtrl.popToRoot();
   }
@@ -67,15 +82,38 @@ export class RecipesPage {
   navMap(){
     this.navCtrl.push(MapPage);
   }
-  shareViaFacebook(tit:string){
-    this.titulo=tit;
 
-    this.socialSharing.share(this.titulo)
-      .then(()=>{
-
-      }).catch(()=>{
-
-    });
+  navEdit(recipe){
+    this.navCtrl.push(EditRecipePage, recipe);
   }
 
+
+  createRecipe() {
+    this.navCtrl.push(NewRecipePage);
+  }
+  navEditRecipe() {
+    this.navCtrl.push(RecipeDetailPage);
+
+  }
+
+  // facebookshare(title,descr){
+  //   this.socialsharing.shareViaFacebook(title,descr)
+  //     .then(() =>{
+  //       console.log("yes");
+  //     }).catch((error) =>{
+  //     console.log("failed posting");
+  //   })
+  // }
+
+
+  share(title,descr){
+    this.title=title;
+    this.description=descr;
+    this.socialsharing.share(this.title,this.description)
+      .then(() =>{
+
+      }).catch((error) =>{
+
+    })
+  }
 }
