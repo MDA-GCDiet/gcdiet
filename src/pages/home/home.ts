@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {RecipesPage} from "../recipes/recipes";
 import { AngularFireAuth } from "angularfire2/auth";
+
 import {LoginPage} from "../login/login";
 import {PerfilPage} from "../perfil/perfil";
 
@@ -76,7 +77,6 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
   }
 
-
   navMap(){
     this.navCtrl.push(MapPage);
   }
@@ -112,6 +112,5 @@ export class HomePage {
         console.log(error);
       });
   }
-
 
 }
