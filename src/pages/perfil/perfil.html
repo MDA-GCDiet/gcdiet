@@ -59,6 +59,9 @@
       <ion-segment-button value="favoritas">
         Favoritas
       </ion-segment-button>
+      <ion-segment-button value="calendario">
+        Calendario
+      </ion-segment-button>
     </ion-segment>
   </div>
 
@@ -85,6 +88,16 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'favoritas'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <!--<img src="img/thumbnail-kitten-1.jpg"> imagen receta-->
+        </ion-thumbnail>
+        <!--<h2>nombre receta</h2>-->
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'calendario'">
       <ion-item>
         <ion-thumbnail item-start>
           <!--<img src="img/thumbnail-kitten-1.jpg"> imagen receta-->

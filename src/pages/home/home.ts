@@ -11,6 +11,8 @@ import {MapPage} from "../map/map";
 import { SocialSharing } from "@ionic-native/social-sharing";
 
 import {Camera, CameraOptions} from "@ionic-native/camera";
+import {EditRecipePage} from "../edit-recipe/edit-recipe";
+import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 
 
 @IonicPage()
@@ -82,6 +84,13 @@ export class HomePage {
   }
 
 
+  navRecipe(){
+    this.navCtrl.push(RecipeDetailPage);
+  }
+
+  navEdit(recipe){
+    this.navCtrl.push(EditRecipePage, recipe);
+  }
 
   facebookshare(fbmsg){
     this.socialSharing.shareViaFacebook('hola', null, null)
