@@ -22,7 +22,7 @@
 <ion-content>
 
   <ion-card *ngFor="let recipe of recipes">
-    <img src="/assets/imgs/tortilla.jpg"/>
+    <img src="{{recipe.img}}"/>
     <ion-card-content>
       <ion-card-title>
         {{recipe.name}}
@@ -46,6 +46,7 @@
       </ion-row>
       <ion-buttons>
         <span>
+          <button ion-button small color="secondary" round outline (click)="navComments(recipe)">Comentarios</button>
           <button ion-button small color="secondary" round outline (click)="share(recipe.name,recipe.ingredients)">Compartir</button>
           <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
           <button ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>

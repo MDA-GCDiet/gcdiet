@@ -7,9 +7,9 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import {MapPage} from "../map/map";
 import {AngularFireAuth} from "angularfire2/auth";
 import {NewRecipePage} from "../new-recipe/new-recipe";
-import {SocialSharing} from "@ionic-native/social-sharing";
 
 import { EditRecipePage } from '../edit-recipe/edit-recipe';
+import {CommentsPage} from "../comments/comments";
 
 
 /**
@@ -34,6 +34,8 @@ export class RecipesPage {
   ingredients = [];
   title: string = null;
   description: string = null;
+  comments=new Array("");
+  newComment: string=null;
 
   constructor(private afAuth: AngularFireAuth,
               public navCtrl: NavController,
@@ -77,6 +79,9 @@ export class RecipesPage {
 
   goHome(){
     this.navCtrl.popToRoot();
+  }
+  navComments(recipe){
+    this.navCtrl.push(CommentsPage, recipe);
   }
 
   navMap(){
