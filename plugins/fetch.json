@@ -74,7 +74,15 @@
   "cordova-plugin-camera": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-camera@~4.0.3"
+      "id": "cordova-plugin-camera@^4.0.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-keyboard": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-keyboard@^1.2.0"
     },
     "is_top_level": true,
     "variables": {}
