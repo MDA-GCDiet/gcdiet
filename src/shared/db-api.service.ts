@@ -29,7 +29,16 @@ export class DbApiService {
 
 
   getIngredients(): Observable <any> {
-    return this.fb.list('alimentos').valueChanges();
+    return this.fb.list('alimentos/1/todos').valueChanges();
+  }
+
+  pushIngredient(ingredient){
+    this.fb.list('alimentos/1/todos').push({
+      energetic_value: ingredient.calories,
+      id: ingredient.id,
+      name: ingredient.name,
+      vitamins: ingredient.vitamins
+    });
   }
 
   getMyRecipes(user){

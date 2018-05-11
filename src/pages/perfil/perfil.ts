@@ -5,6 +5,7 @@ import {DbApiService} from "../../shared/db-api.service";
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {CalendarPage} from "../calendar/calendar";
 import {stringSplice} from "@ionic/app-scripts";
+import {FoodPage} from "../food/food";
 
 
 /**
@@ -25,6 +26,8 @@ export class PerfilPage {
   usuario = {};
   recipes = [];
   usermail: string;
+  ingredients = [];
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private afAuth: AngularFireAuth,
@@ -42,16 +45,29 @@ export class PerfilPage {
     this.dbapi.getRecipes().subscribe(
       (data) => this.recipes = data
     );
+    this.dbapi.getIngredients().subscribe(
+      (data) => this.ingredients = data
+    );
+    
     console.log('ionViewDidLoad PerfilPage');
+    
+    console.log(this.recipes);
   }
 
 
   navEditRecipe() {
     this.navCtrl.push(RecipeDetailPage);
+    
+    console.log(this.recipes);
   }
 
   navCalendar() {
     this.navCtrl.push(CalendarPage);
+  }
+
+  navFood() {
+    this.navCtrl.push(FoodPage);
+    console.log(this.ingredients);
   }
 
 }
