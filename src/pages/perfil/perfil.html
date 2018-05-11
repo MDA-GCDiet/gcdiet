@@ -59,6 +59,10 @@
       <ion-segment-button value="favoritas">
         Favoritas
       </ion-segment-button>
+
+      <ion-segment-button value="calendario">
+        Calendario
+       </ion-segment-button>
       <ion-segment-button value="ingredientes" *ngIf="usuario.email=='admin@admin.admin'">
         Ingredientes
       </ion-segment-button>
@@ -68,11 +72,11 @@
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'misrecetas'">
 
-      <ion-item *ngFor="let recipe of recipes">
+      <ion-item *ngFor="let recipe of recipes | customerEmailFilter: usermail" >
         <!--<ion-thumbnail item-start>-->
           <!--&lt;!&ndash;<img src="img/thumbnail-kitten-1.jpg"> imagen receta&ndash;&gt;-->
         <!--</ion-thumbnail>-->
-        <ion-card *ngIf="recipe.name=='Pasta bolognesa'">
+        <ion-card *ngIf="recipe.user== usuario.email">
           <img src="/assets/imgs/tortilla.jpg"/>
           <ion-card-content >
             <ion-card-title>
@@ -88,6 +92,16 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'favoritas'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <!--<img src="img/thumbnail-kitten-1.jpg"> imagen receta-->
+        </ion-thumbnail>
+        <!--<h2>nombre receta</h2>-->
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'calendario'">
       <ion-item>
         <ion-thumbnail item-start>
           <!--<img src="img/thumbnail-kitten-1.jpg"> imagen receta-->

@@ -41,7 +41,9 @@ export class DbApiService {
     });
   }
 
-
+  getMyRecipes(user){
+    return this.fb.list('recipes').valueChanges();
+  }
 
   pushRecipe(recipe) {
     this.afDB.database.ref('recipes/' + recipe.id).set(recipe);
