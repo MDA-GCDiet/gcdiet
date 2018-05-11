@@ -32,7 +32,9 @@ export class DbApiService {
     return this.fb.list('alimentos').valueChanges();
   }
 
-
+  getMyRecipes(user){
+    return this.fb.list('recipes').valueChanges();
+  }
 
   pushRecipe(recipe) {
     this.afDB.database.ref('recipes/' + recipe.id).set(recipe);

@@ -7,8 +7,6 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import {MapPage} from "../map/map";
 import {AngularFireAuth} from "angularfire2/auth";
 import {NewRecipePage} from "../new-recipe/new-recipe";
-import {SocialSharing} from "@ionic-native/social-sharing";
-
 import { EditRecipePage } from '../edit-recipe/edit-recipe';
 
 
@@ -29,6 +27,7 @@ export class RecipesPage {
   @ViewChild(Nav) nav: Nav;
 
   usuario = {};
+  user: string = '';
   recipes = [];
   fruits = [];
   ingredients = [];
@@ -47,6 +46,7 @@ export class RecipesPage {
 
     this.afAuth.authState.subscribe(data => {
       this.usuario = data;
+      this.user = data.email;
       console.log(data);
     });
 

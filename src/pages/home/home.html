@@ -53,7 +53,7 @@
           <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
 
 
-          <button *ngIf="usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
+          <button *ngIf="usuario && usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
         </span>
       </ion-buttons>
     </ion-card-content>
