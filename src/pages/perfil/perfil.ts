@@ -4,6 +4,9 @@ import {AngularFireAuth} from "angularfire2/auth";
 import {DbApiService} from "../../shared/db-api.service";
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {CalendarPage} from "../calendar/calendar";
+import {stringSplice} from "@ionic/app-scripts";
+import {FoodPage} from "../food/food";
+
 
 /**
  * Generated class for the PerfilPage page.
@@ -16,12 +19,14 @@ import {CalendarPage} from "../calendar/calendar";
 @Component({
   selector: 'page-perfil',
   templateUrl: 'perfil.html',
+
 })
 export class PerfilPage {
 
   usuario = {};
   recipes = [];
-
+  usermail: string;
+  ingredients = [];
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -32,22 +37,37 @@ export class PerfilPage {
   ionViewDidLoad() {
     this.afAuth.authState.subscribe(data => {
       this.usuario = data;
+      this.usermail = data.email;
+      // this.email =  this.usermail;
       console.log(data.email);
     });
 
     this.dbapi.getRecipes().subscribe(
       (data) => this.recipes = data
     );
+    this.dbapi.getIngredients().subscribe(
+      (data) => this.ingredients = data
+    );
+    
     console.log('ionViewDidLoad PerfilPage');
+    
+    console.log(this.recipes);
   }
 
 
   navEditRecipe() {
     this.navCtrl.push(RecipeDetailPage);
+    
+    console.log(this.recipes);
   }
 
   navCalendar() {
     this.navCtrl.push(CalendarPage);
+  }
+
+  navFood() {
+    this.navCtrl.push(FoodPage);
+    console.log(this.ingredients);
   }
 
 }

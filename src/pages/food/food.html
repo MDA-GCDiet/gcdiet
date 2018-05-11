@@ -23,7 +23,12 @@
       <ion-item>
         <ion-icon name="name"></ion-icon>
         <ion-label stacked>Nombre:</ion-label>
-        <ion-input formControlName="name" type="text" placeholder="Nombre" [(ngModel)]="ingredient.tag"></ion-input>
+        <ion-input formControlName="name" type="text" placeholder="Nombre" [(ngModel)]="ingredient.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="id"></ion-icon>
+        <ion-label stacked>ID:</ion-label>
+        <ion-input formControlName="id" type="number" placeholder="id" [(ngModel)]="ingredient.id"></ion-input>
       </ion-item>
       <ion-item>
         <ion-icon name="vitamins"></ion-icon>

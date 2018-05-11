@@ -11,7 +11,6 @@
     <button *ngIf="!usuario" ion-button (click)="goToLogin()">
       <ion-icon name="log-in"></ion-icon>
     </button>
-
       <button *ngIf="usuario" ion-button color="dark" (click)="navPerfil()"><ion-icon name="contact"></ion-icon></button>
 
     <button *ngIf="usuario" ion-button color="danger" (click)="logout()">
@@ -54,10 +53,9 @@
         <span>
           <button ion-button small color="secondary" round outline (click)="share(recipe.name,recipe.ingredients)">Compartir</button>
           <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
+          
+          <button *ngIf="usuario && usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
 
-
-
-          <button *ngIf="usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
         </span>
       </ion-buttons>
     </ion-card-content>

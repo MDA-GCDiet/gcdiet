@@ -56,6 +56,7 @@ export class NewRecipePage {
   addRecipe(recipe) {
     recipe.id = Date.now();
     recipe.user = this.userEmail;
+    recipe.comments = new Array("");
     this.dbapi.pushRecipe(recipe);
     this.navCtrl.popToRoot();
   }
