@@ -18,7 +18,7 @@
   <img src="{{recipe.img}}"/>
 
   <ion-card color="light" *ngFor="let comment of comments">
-    <ion-card-content *ngIf="comment >=1 ">{{comment}}</ion-card-content>
+    <ion-card-content>{{comment}}</ion-card-content>
   </ion-card>
   <form [formGroup]="myForm">
       <ion-item>
