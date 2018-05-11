@@ -27,6 +27,10 @@ export class DbApiService {
     return this.fb.list('recipes').valueChanges();
   }
 
+  getComments(id): Observable<any> {
+    return this.fb.list('recipes/'+id+'/comments/').valueChanges();
+  }
+
 
   getIngredients(): Observable <any> {
     return this.fb.list('alimentos/1/todos').valueChanges();
