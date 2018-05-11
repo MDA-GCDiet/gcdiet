@@ -35,6 +35,7 @@ import {Camera} from "@ionic-native/camera";
 import {CommentsPage} from "../pages/comments/comments";
 
 import {CustomerEmailFilter} from "../shared/filter-pipe.pipe";
+import {SocialSharing} from "@ionic-native/social-sharing";
 // import {MyFilterPipe} from "../shared/filter-pipe.pipe";
 
 
