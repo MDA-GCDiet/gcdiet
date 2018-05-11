@@ -22,7 +22,12 @@
 </ion-header>
 
 
+
 <ion-content>
+
+  <button ion-button (click)="getPicture()">Take a picture</button>
+  <img [src]="image" *ngIf="image"/>
+
 
   <ion-card *ngFor="let recipe of recipes" (click)="navRecipe(recipe)">
     <img src="/assets/imgs/tortilla.jpg"/>
@@ -51,9 +56,9 @@
         <span>
           <button ion-button small color="secondary" round outline (click)="share(recipe.name,recipe.ingredients)">Compartir</button>
           <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
-
-
+          
           <button *ngIf="usuario && usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
+
         </span>
       </ion-buttons>
     </ion-card-content>
