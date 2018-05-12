@@ -24,6 +24,7 @@ export class NewRecipePage {
   user = {};
   userEmail: string;
   image: string = null;
+  picData: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -65,19 +66,28 @@ export class NewRecipePage {
   }
 
   getPicture(){
-    const options: CameraOptions = {
+    this.camera.getPicture({
+      quality:100,
       destinationType: this.camera.DestinationType.DATA_URL,
-      targetWidth: 1000,
-      targetHeight: 1000,
-      quality: 100
-    };
-    this.camera.getPicture(options)
-      .then(imageData => {
-        this.image = `data:image/jpeg;base64,${imageData}`;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      correctOrientation: true,
+      encodingType: this.camera.EncodingType.JPEG,
+      saveToPhotoAlbum: true,
+    }).then(imgData =>{
+      this.picData = imgData;
+      /*this.upload();*/
+    })
   }
+
+/*  upload(){
+    this.picName = this.uid()+'.jpeg';
+    this.myPicRef.child(this.picName)
+      .putString(this.picData, 'base64',{contentType:'image/png'})
+      .then(savepic =>{
+        this.picUrl = savepic;
+        console.log(this.picUrl);
+        this.getPhoto(this.picName);
+      });
+  }*/
 
 }

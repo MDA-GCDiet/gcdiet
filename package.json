@@ -53,8 +53,8 @@
   "devDependencies": {
     "@agm/core": "^1.0.0-beta.2",
     "@ionic/app-scripts": "3.1.8",
-    "angularfire2": "^5.0.0-rc.4",
-    "firebase": "^4.12.1",
+    "angularfire2": "^5.0.0-rc.6",
+    "firebase": "^4.13.1",
     "promise-polyfill": "^7.1.1",
     "typescript": "2.4.2"
   },
