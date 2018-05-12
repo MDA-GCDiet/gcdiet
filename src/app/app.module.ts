@@ -29,7 +29,6 @@ import {FoodPage} from "../pages/food/food";
 
 import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
 import {AddEventPage} from "../pages/add-event/add-event";
-
 import {Camera} from "@ionic-native/camera";
 
 import {CommentsPage} from "../pages/comments/comments";
@@ -111,8 +110,8 @@ export const FirebaseConfig = {
     UserService,
     Calendar,
     SocialSharing,
-    Camera,
-    DataProvider
+    DataProvider,
+    Camera
   ]
 })
 

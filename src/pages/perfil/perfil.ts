@@ -6,6 +6,9 @@ import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {CalendarPage} from "../calendar/calendar";
 import {stringSplice} from "@ionic/app-scripts";
 import {FoodPage} from "../food/food";
+import {EditRecipePage} from "../edit-recipe/edit-recipe";
+import {MapPage} from "../map/map";
+import {CommentsPage} from "../comments/comments";
 
 
 /**
@@ -48,16 +51,16 @@ export class PerfilPage {
     this.dbapi.getIngredients().subscribe(
       (data) => this.ingredients = data
     );
-    
+
     console.log('ionViewDidLoad PerfilPage');
-    
+
     console.log(this.recipes);
   }
 
 
   navEditRecipe() {
     this.navCtrl.push(RecipeDetailPage);
-    
+
     console.log(this.recipes);
   }
 
@@ -68,6 +71,18 @@ export class PerfilPage {
   navFood() {
     this.navCtrl.push(FoodPage);
     console.log(this.ingredients);
+  }
+
+  navEdit(recipe) {
+    this.navCtrl.push(EditRecipePage, recipe);
+  }
+
+  navMap(){
+    this.navCtrl.push(MapPage);
+  }
+
+  navComments(recipe, usuario){
+    this.navCtrl.push(CommentsPage, {'recipe': recipe, 'usuario': usuario});
   }
 
 }

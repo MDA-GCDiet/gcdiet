@@ -41,6 +41,7 @@
     "cordova-sqlite-storage": "^2.2.1",
     "intl": "^1.2.5",
     "ionic-angular": "3.9.2",
+    "ionic-native": "^2.9.0",
     "ionic-plugin-keyboard": "^2.2.1",
     "ionic2-calendar": "^0.4.3",
     "ionicons": "3.0.0",

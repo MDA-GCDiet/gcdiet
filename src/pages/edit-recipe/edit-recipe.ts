@@ -56,6 +56,7 @@ export class EditRecipePage {
 
   editRecipe(recipe){
     this.afDB.database.ref('recipes/'+recipe.id).set(recipe);
+    this.navCtrl.pop();
     // this.recipesRef.update(recipe.key,{
     //   name: recipe.name,
     //   tag: recipe.tag,
