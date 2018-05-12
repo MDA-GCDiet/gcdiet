@@ -12,6 +12,7 @@ import { SocialSharing } from "@ionic-native/social-sharing";
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {EditRecipePage} from "../edit-recipe/edit-recipe";
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
+import {CommentsPage} from "../comments/comments";
 
 @IonicPage()
 @Component({
@@ -113,6 +114,10 @@ export class HomePage {
       .catch(error => {
         console.log(error);
       });
+  }
+
+  navComments(recipe){
+    this.navCtrl.push(CommentsPage, recipe);
   }
 
 }
