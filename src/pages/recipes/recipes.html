@@ -28,13 +28,6 @@
     <ion-spinner></ion-spinner>
   </div>
 
-  <!--<ion-list>-->
-    <!--<ion-item *ngFor="let item of recipes">-->
-      <!--{{item.name}}-->
-    <!--</ion-item>-->
-  <!--</ion-list>-->
-
-  <!--<ion-card *ngFor="let recipe of recipes">-->
     <ion-card *ngFor="let item of items">
     <img src="{{item.img}}"/>
     <ion-card-content>
@@ -56,7 +49,7 @@
         <span>
           <button ion-button small color="secondary" round outline (click)="share(item.name,item.ingredients)">Compartir</button>
           <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
-          <!--<button *ngIf="usuario && usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>-->
+          <button *ngIf="usuario && usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
         </span>
         <button ion-button full small color="secondary" round  (click)="navComments(recipe)">Comentarios</button>
       </ion-buttons>

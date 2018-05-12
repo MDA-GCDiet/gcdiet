@@ -11,6 +11,7 @@ import {CommentsPage} from "../comments/comments";
 import * as _ from 'lodash';
 import {FormControl} from "@angular/forms";
 import {DataProvider} from "../../shared/data";
+import {SocialSharing} from "@ionic-native/social-sharing";
 
 
 /**
@@ -59,7 +60,10 @@ export class RecipesPage {
 
     this.afAuth.authState.subscribe(data => {
       this.usuario = data;
-      this.user = data.email;
+      if (this.usuario) {
+
+        this.user = data.email;
+      }
       console.log(data);
     });
 
