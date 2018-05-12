@@ -25,11 +25,15 @@ export class HomePage {
   recipes = [];
   ingredients = [];
   image: string = null;
+  title: string = null;
+  description: string = null;
+  comments=new Array("");
+  newComment: string=null;
 
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
-
+              private socialsharing: SocialSharing,
               public navParams: NavParams, private dbapi: DbApiService,
               private socialSharing: SocialSharing,
               private camera: Camera) {
@@ -91,12 +95,14 @@ export class HomePage {
     this.navCtrl.push(EditRecipePage, recipe);
   }
 
-  facebookshare(fbmsg){
-    this.socialSharing.shareViaFacebook('hola', null, null)
+  share(title,descr){
+    this.title=title;
+    this.description=descr;
+    this.socialsharing.share(this.title,this.description)
       .then(() =>{
-        console.log("yes");
+
       }).catch((error) =>{
-      console.log("failed posting");
+
     })
   }
 
