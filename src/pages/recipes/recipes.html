@@ -22,7 +22,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content >
 
   <div *ngIf="searching" class="spinner-container">
     <ion-spinner></ion-spinner>
@@ -49,9 +49,9 @@
         <span>
           <button ion-button small color="secondary" round outline (click)="share(item.name,item.ingredients)">Compartir</button>
           <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
-          <button *ngIf="usuario && usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
+          <button *ngIf="item.user!= '' && usuario?.email == item.user" ion-button small color="secondary" round outline (click)="navEdit(item)">Editar</button>
         </span>
-        <button ion-button full small color="secondary" round  (click)="navComments(recipe)">Comentarios</button>
+        <button ion-button full small color="secondary" round  (click)="navComments(usuario, item)">Comentarios</button>
       </ion-buttons>
     </ion-card-content>
   </ion-card>

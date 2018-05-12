@@ -60,10 +60,6 @@ export class RecipesPage {
 
     this.afAuth.authState.subscribe(data => {
       this.usuario = data;
-      if (this.usuario) {
-
-        this.user = data.email;
-      }
       console.log(data);
     });
 
@@ -72,6 +68,7 @@ export class RecipesPage {
     this.dbapi.getRecipes().subscribe(
       (data) => {
           this.recipes = data;
+          console.log(this.recipes);
           this.setFilteredItems();
       }
     );
@@ -112,8 +109,8 @@ export class RecipesPage {
   goHome(){
     this.navCtrl.popToRoot();
   }
-  navComments(recipe){
-    this.navCtrl.push(CommentsPage, recipe);
+  navComments(usuario, recipe){
+    this.navCtrl.push(CommentsPage, {'usuario': usuario, 'recipe': recipe});
   }
 
   navMap(){

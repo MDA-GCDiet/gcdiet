@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>Comentatios</ion-title>
+    <ion-title>Comentarios</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,7 +20,7 @@
   <ion-card color="light" *ngFor="let comment of comments">
     <ion-card-content>{{comment}}</ion-card-content>
   </ion-card>
-  <form [formGroup]="myForm">
+  <form *ngIf="usuario" [formGroup]="myForm">
       <ion-item>
         <ion-icon name="addComment"></ion-icon>
         <ion-input formControlName="comment" type="text" placeholder="Añade un comentario.."[(ngModel)]="recipe.newComment"></ion-input>

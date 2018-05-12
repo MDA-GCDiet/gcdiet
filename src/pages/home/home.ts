@@ -122,8 +122,8 @@ export class HomePage {
       });
   }
 
-  navComments(recipe){
-    this.navCtrl.push(CommentsPage, recipe);
+  navComments(recipe, usuario){
+    this.navCtrl.push(CommentsPage, {'recipe': recipe, 'usuario': usuario});
   }
 
 }

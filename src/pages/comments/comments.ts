@@ -19,6 +19,7 @@ import {DbApiService} from "../../shared/db-api.service";
 export class CommentsPage {
   myForm: FormGroup;
   recipe: any;
+  usuario: any;
   comments=[];
 
   constructor(public navCtrl: NavController,
@@ -27,11 +28,13 @@ export class CommentsPage {
               private afDB: AngularFireDatabase,
               private service: DbApiService) {
     this.myForm = this.createMyForm();
-    this.recipe = this.navParams.data;
+    this.recipe = this.navParams.get('recipe');
+    this.usuario = this.navParams.get('usuario');
   }
 
   ionViewDidLoad() {
     console.log(this.recipe);
+    console.log(this.usuario);
     console.log('ionViewDidLoad CommentsPage');
     this.service.getComments(this.recipe.id).subscribe(data => this.comments = data);
     console.log(this.comments);
