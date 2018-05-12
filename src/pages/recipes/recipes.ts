@@ -8,6 +8,7 @@ import {AngularFireAuth} from "angularfire2/auth";
 import {NewRecipePage} from "../new-recipe/new-recipe";
 import { EditRecipePage } from '../edit-recipe/edit-recipe';
 import {CommentsPage} from "../comments/comments";
+import {SocialSharing} from "@ionic-native/social-sharing";
 
 
 /**
