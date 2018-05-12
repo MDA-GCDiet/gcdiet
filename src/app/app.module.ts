@@ -34,6 +34,7 @@ import {AddEventPage} from "../pages/add-event/add-event";
 import {Camera} from "@ionic-native/camera";
 import {CustomerEmailFilter} from "../shared/filter-pipe.pipe";
 // import {MyFilterPipe} from "../shared/filter-pipe.pipe";
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 
 export const FirebaseConfig = {
@@ -70,7 +71,8 @@ export const FirebaseConfig = {
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs' })
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs' }),
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
