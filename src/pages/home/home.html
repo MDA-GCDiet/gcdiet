@@ -20,11 +20,15 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
 
-  <ion-card *ngFor="let recipe of recipes">
-    <img src="{{recipe.img}}"/>
+<!--  <button ion-button (click)="getPicture()">Take a picture</button>
+  <img [src]="image" *ngIf="image"/>-->
+
+
+  <ion-card *ngFor="let recipe of recipes" (click)="navRecipe(recipe)">
+    <img src="/assets/imgs/tortilla.jpg"/>
+
     <ion-card-content>
       <ion-card-title>
         {{recipe.name}}
