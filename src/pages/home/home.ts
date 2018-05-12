@@ -12,6 +12,7 @@ import { SocialSharing } from "@ionic-native/social-sharing";
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {EditRecipePage} from "../edit-recipe/edit-recipe";
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
+import {CommentsPage} from "../comments/comments";
 
 
 @IonicPage()
@@ -27,11 +28,16 @@ export class HomePage {
   image: string = null;
   rate: any;
   lock: any;
+  title: string = null;
+  description: string = null;
+  comments=new Array("");
+  newComment: string=null;
+
 
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
-
+              private socialsharing: SocialSharing,
               public navParams: NavParams, private dbapi: DbApiService,
               private socialSharing: SocialSharing,
               private camera: Camera) {
@@ -93,12 +99,14 @@ export class HomePage {
     this.navCtrl.push(EditRecipePage, recipe);
   }
 
-  facebookshare(fbmsg){
-    this.socialSharing.shareViaFacebook('hola', null, null)
+  share(title,descr){
+    this.title=title;
+    this.description=descr;
+    this.socialsharing.share(this.title,this.description)
       .then(() =>{
-        console.log("yes");
+
       }).catch((error) =>{
-      console.log("failed posting");
+
     })
   }
 
@@ -133,6 +141,10 @@ export class HomePage {
     
     console.log(recipe);
     console.log(recipe);
+  }
+
+  navComments(recipe, usuario){
+    this.navCtrl.push(CommentsPage, {'recipe': recipe, 'usuario': usuario});
   }
 
 }

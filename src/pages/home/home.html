@@ -20,18 +20,16 @@
   </ion-navbar>
 </ion-header>
 
-
-
 <ion-content>
 
-  <button ion-button (click)="getPicture()">Take a picture</button>
-  <img [src]="image" *ngIf="image"/>
 
-
+<!--  <button ion-button (click)="getPicture()">Take a picture</button>
+  <img [src]="image" *ngIf="image"/>-->
   <ion-card *ngFor="let recipe of recipes">
-    <img src="/assets/imgs/tortilla.jpg"/>
+    <img src="{{recipe.img}}"/>
     <ion-card-content>
       <ion-card-title>
+        <!--{{recipe.name}}-->
         {{recipe.name}}
       </ion-card-title>
       <rating class = "rating" 
@@ -41,13 +39,6 @@
         {{recipe.ingredients}}
       </p>
 
-      <!--<ion-row>-->
-      <!--<ion-col>-->
-      <!--<button ion-fab (click)="facebookshare(recipe.name,recipe.ingredients)">-->
-      <!--<ion-icon name="logo-facebook"></ion-icon>-->
-      <!--</button>-->
-      <!--</ion-col>-->
-      <!--</ion-row>-->
 
       <ion-row>
         <ion-col>
@@ -57,27 +48,15 @@
       <ion-buttons>
         <span>
           <button ion-button small color="secondary" round outline (click)="share(recipe.name,recipe.ingredients)">Compartir</button>
-          <button ion-button small color="secondary" round outline (click)="navMap(recipe)">Mapa</button>
+          <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
           <button *ngIf="usuario && usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
         </span>
+        <button ion-button full small color="secondary" round  (click)="navComments(recipe, usuario)">Comentarios</button>
       </ion-buttons>
     </ion-card-content>
   </ion-card>
   
 
-
-
-  <ion-list>
-    <ion-item>
-      <button ion-item="" color="primary" (click)="viewFruits()">Ver frutas</button>
-    </ion-item>
-    <ion-item-group *ngFor="let fruit of fruits">
-      <ion-item-divider color="secondary">
-        {{fruit.name}}
-      </ion-item-divider>
-    </ion-item-group>
-  </ion-list>
-
-
 </ion-content>
+
 

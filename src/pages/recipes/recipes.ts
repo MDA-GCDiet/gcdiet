@@ -3,11 +3,15 @@ import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
 
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {DbApiService} from "../../shared/db-api.service";
-import { SocialSharing } from '@ionic-native/social-sharing';
 import {MapPage} from "../map/map";
 import {AngularFireAuth} from "angularfire2/auth";
 import {NewRecipePage} from "../new-recipe/new-recipe";
 import { EditRecipePage } from '../edit-recipe/edit-recipe';
+import {CommentsPage} from "../comments/comments";
+import * as _ from 'lodash';
+import {FormControl} from "@angular/forms";
+import {DataProvider} from "../../shared/data";
+import {SocialSharing} from "@ionic-native/social-sharing";
 
 
 /**
@@ -33,12 +37,22 @@ export class RecipesPage {
   ingredients = [];
   title: string = null;
   description: string = null;
+  comments=new Array("");
+  newComment: string=null;
+  // queryText: String = '';
+
+  searchTerm: string = '';
+  searchControl: FormControl;
+  items: any;
+  searching: any = false;
 
   constructor(private afAuth: AngularFireAuth,
               public navCtrl: NavController,
               public navParams: NavParams,
               private dbapi: DbApiService,
+              private dataService: DataProvider,
               private socialsharing: SocialSharing) {
+    this.searchControl = new FormControl();
 
   }
 
@@ -46,18 +60,35 @@ export class RecipesPage {
 
     this.afAuth.authState.subscribe(data => {
       this.usuario = data;
-      this.user = data.email;
       console.log(data);
     });
 
     console.log('ionViewDidLoad RecipesPage');
 
     this.dbapi.getRecipes().subscribe(
-      (data) => this.recipes = data
+      (data) => {
+          this.recipes = data;
+          console.log(this.recipes);
+          this.setFilteredItems();
+      }
     );
 
     this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
 
+
+    this.setFilteredItems();
+    this.searchControl.valueChanges.subscribe(search  => {
+      this.searching = true;
+      this.setFilteredItems();
+    });
+  }
+
+  onSearchInput(){
+    this.searching = false;
+  }
+
+  setFilteredItems() {
+    this.items = this.dataService.filterItems(this.searchTerm, this.recipes);
   }
 
   viewFruits(){
@@ -77,6 +108,9 @@ export class RecipesPage {
 
   goHome(){
     this.navCtrl.popToRoot();
+  }
+  navComments(usuario, recipe){
+    this.navCtrl.push(CommentsPage, {'usuario': usuario, 'recipe': recipe});
   }
 
   navMap(){

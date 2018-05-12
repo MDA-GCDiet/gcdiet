@@ -1,0 +1,32 @@
+<!--
+  Generated template for the CommentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Comentarios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <img src="{{recipe.img}}"/>
+
+  <ion-card color="light" *ngFor="let comment of comments">
+    <ion-card-content>{{comment}}</ion-card-content>
+  </ion-card>
+  <form *ngIf="usuario" [formGroup]="myForm">
+      <ion-item>
+        <ion-icon name="addComment"></ion-icon>
+        <ion-input formControlName="comment" type="text" placeholder="Añade un comentario.."[(ngModel)]="recipe.newComment"></ion-input>
+      </ion-item>
+    <div>
+      <button ion-button color="secondary" full round type="submit" [disabled]="!myForm.valid" (click)="addComment(recipe)">Enviar</button>
+    </div>
+  </form>
+</ion-content>
