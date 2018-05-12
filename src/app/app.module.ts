@@ -36,6 +36,8 @@ import {CommentsPage} from "../pages/comments/comments";
 
 import {CustomerEmailFilter} from "../shared/filter-pipe.pipe";
 import {SocialSharing} from "@ionic-native/social-sharing";
+import {DataProvider} from "../shared/data";
+import {HttpModule} from "@angular/http";
 // import {MyFilterPipe} from "../shared/filter-pipe.pipe";
 
 
@@ -76,7 +78,8 @@ export const FirebaseConfig = {
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs' })
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs' }),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -108,7 +111,8 @@ export const FirebaseConfig = {
     UserService,
     Calendar,
     SocialSharing,
-    Camera
+    Camera,
+    DataProvider
   ]
 })
 

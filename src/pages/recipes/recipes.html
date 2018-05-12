@@ -16,28 +16,29 @@
 
   </ion-navbar>
 
+  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+
+
 </ion-header>
 
 
 <ion-content>
 
-  <ion-card *ngFor="let recipe of recipes">
-    <img src="{{recipe.img}}"/>
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+    <ion-card *ngFor="let item of items">
+    <img src="{{item.img}}"/>
     <ion-card-content>
       <ion-card-title>
-        {{recipe.name}}
+        <!--{{recipe.name}}-->
+        {{item.name}}
       </ion-card-title>
       <p>
-        {{recipe.ingredients}}
+        {{item.ingredients}}
       </p>
 
-      <!--<ion-row>-->
-        <!--<ion-col>-->
-          <!--<button ion-fab (click)="facebookshare(recipe.name,recipe.ingredients)">-->
-            <!--<ion-icon name="logo-facebook"></ion-icon>-->
-          <!--</button>-->
-        <!--</ion-col>-->
-      <!--</ion-row>-->
 
       <ion-row>
         <ion-col>
@@ -46,7 +47,7 @@
       </ion-row>
       <ion-buttons>
         <span>
-          <button ion-button small color="secondary" round outline (click)="share(recipe.name,recipe.ingredients)">Compartir</button>
+          <button ion-button small color="secondary" round outline (click)="share(item.name,item.ingredients)">Compartir</button>
           <button ion-button small color="secondary" round outline (click)="navMap()">Mapa</button>
           <button *ngIf="usuario && usuario.email == recipe.user" ion-button small color="secondary" round outline (click)="navEdit(recipe)">Editar</button>
         </span>
