@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {HomePage} from "../pages/home/home";
 import {RecipesPage} from "../pages/recipes/recipes";
+import { FavoritesPage } from '../pages/favorites/favorites';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -42,6 +44,9 @@ export class MyApp {
 
   goToRecipes() {
     this.nav.push(RecipesPage);
+  }
+  goToFavorites() {
+    this.nav.push(FavoritesPage);
   }
 
 }
