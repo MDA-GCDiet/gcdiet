@@ -112,5 +112,23 @@ export class HomePage {
   navComments(recipe, usuario){
     this.navCtrl.push(CommentsPage, {'recipe': recipe, 'usuario': usuario});
   }
+  onModelChange($event, recipe){
+    if(!recipe.votes){
+      recipe.votes = 1;
+      recipe.points = recipe.rate;
+      recipe.rate = recipe.rate;
+    }else{
+      recipe.votes++;
+      recipe.points += recipe.rate;
+      recipe.rate = recipe.points/recipe.votes;
+      
+    }
+    this.lock=true;
+    this.dbapi.pushRecipe(recipe);
+    
+    console.log(recipe);
+    console.log(recipe);
+  }
+
 
 }
