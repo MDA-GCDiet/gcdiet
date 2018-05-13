@@ -32,8 +32,8 @@
         <!--{{recipe.name}}-->
         {{recipe.name}}
       </ion-card-title>
-      <rating class = "rating" 
-      [(ngModel)]="recipe.rate" (ngModelChange)="onModelChange($event, recipe)" readOnly="{{lock}}"
+      <rating class = "rating"
+      [(ngModel)]="recipe.rate" (ngModelChange)="onModelChange($event, recipe)"
       ></rating>
       <p>
         {{recipe.ingredients}}
@@ -55,7 +55,7 @@
       </ion-buttons>
     </ion-card-content>
   </ion-card>
-  
+
 
 </ion-content>
 

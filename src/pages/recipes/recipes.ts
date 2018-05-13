@@ -128,6 +128,9 @@ export class RecipesPage {
     this.navCtrl.push(RecipeDetailPage);
 
   }
+  navRecipe(recipe){
+    this.navCtrl.push(RecipeDetailPage, {'recipe': recipe});
+  }
 
   // facebookshare(title,descr){
   //   this.socialsharing.shareViaFacebook(title,descr)
