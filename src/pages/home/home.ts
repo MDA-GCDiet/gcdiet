@@ -9,7 +9,6 @@ import {PerfilPage} from "../perfil/perfil";
 import {DbApiService} from "../../shared/db-api.service";
 import {MapPage} from "../map/map";
 import { SocialSharing } from "@ionic-native/social-sharing";
-import {Camera, CameraOptions} from "@ionic-native/camera";
 import {EditRecipePage} from "../edit-recipe/edit-recipe";
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {CommentsPage} from "../comments/comments";
@@ -39,9 +38,9 @@ export class HomePage {
               public navCtrl: NavController,
               private socialsharing: SocialSharing,
               public navParams: NavParams, private dbapi: DbApiService,
-              private socialSharing: SocialSharing,
-              private camera: Camera) {
-                
+              private socialSharing: SocialSharing) {
+
+
   }
 
   ionViewWillLoad(){
@@ -108,39 +107,6 @@ export class HomePage {
       }).catch((error) =>{
 
     })
-  }
-
-  getPicture(){
-    const options: CameraOptions = {
-      destinationType: this.camera.DestinationType.DATA_URL,
-      targetWidth: 1000,
-      targetHeight: 1000,
-      quality: 100
-    };
-    this.camera.getPicture(options)
-      .then(imageData => {
-        this.image = `data:image/jpeg;base64,${imageData}`;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-  onModelChange($event, recipe){
-    if(!recipe.votes){
-      recipe.votes = 1;
-      recipe.points = recipe.rate;
-      recipe.rate = recipe.rate;
-    }else{
-      recipe.votes++;
-      recipe.points += recipe.rate;
-      recipe.rate = recipe.points/recipe.votes;
-      
-    }
-    this.lock=true;
-    this.dbapi.pushRecipe(recipe);
-    
-    console.log(recipe);
-    console.log(recipe);
   }
 
   navComments(recipe, usuario){

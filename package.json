@@ -43,6 +43,7 @@
     "intl": "^1.2.5",
     "ionic": "^3.20.0",
     "ionic-angular": "3.9.2",
+    "ionic-native": "^2.9.0",
     "ionic-plugin-keyboard": "^2.2.1",
     "ionic2-calendar": "^0.4.3",
     "ionic2-rating": "^1.2.2",

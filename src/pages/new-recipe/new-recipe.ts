@@ -3,7 +3,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DbApiService} from "../../shared/db-api.service";
 import {AngularFireAuth} from "angularfire2/auth";
-import {Camera, CameraOptions} from "@ionic-native/camera";
+import {Camera} from "@ionic-native/camera";
 
 /**
  * Generated class for the NewRecipePage page.
@@ -49,7 +49,8 @@ export class NewRecipePage {
     return this.formBuilder.group({
       name: ['', Validators.required],
       tag: ['', Validators.required],
-      ingredients: ['', Validators.required]
+      ingredients: ['', Validators.required],
+      img: ['', Validators]
     });
   }
 
@@ -65,7 +66,7 @@ export class NewRecipePage {
     this.navCtrl.popToRoot();
   }
 
-  getPicture(){
+  getMedia() {
     this.camera.getPicture({
       quality:100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -75,9 +76,23 @@ export class NewRecipePage {
       saveToPhotoAlbum: true,
     }).then(imgData =>{
       this.picData = imgData;
-      /*this.upload();*/
+      // this.upload();
     })
   }
+
+/*  getPicture(){
+    this.camera.getPicture({
+      quality:100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      correctOrientation: true,
+      encodingType: this.camera.EncodingType.JPEG,
+      saveToPhotoAlbum: true,
+    }).then(imgData =>{
+      this.picData = imgData;
+      /!*this.upload();*!/
+    })
+  }*/
 
 /*  upload(){
     this.picName = this.uid()+'.jpeg';

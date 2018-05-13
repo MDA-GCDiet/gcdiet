@@ -27,11 +27,8 @@ import {FoodPage} from "../pages/food/food";
 import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
 import {AddEventPage} from "../pages/add-event/add-event";
 import {FavoritesPage} from "../pages/favorites/favorites";
-
 import {Camera} from "@ionic-native/camera";
-
 import {CommentsPage} from "../pages/comments/comments";
-
 import {CustomerEmailFilter} from "../shared/filter-pipe.pipe";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {DataProvider} from "../shared/data";

@@ -30,13 +30,20 @@
         <ion-label stacked>Ingredientes:</ion-label>
         <ion-input formControlName="ingredients" type="text" placeholder="Ingredientes" [(ngModel)]="recipe.ingredients"></ion-input>
       </ion-item>
+    <!--  <ion-item>
+        <ion-icon name="image"></ion-icon>
+        <ion-label stacked>Image:</ion-label>
+        <ion-input formControlName="img" type="text" placeholder="Ingredientes" [(ngModel)]="recipe.img"></ion-input>
+      </ion-item>-->
     </ion-list>
     <div>
-      <button ion-button (click)="getPicture()">Take a picture</button>
+      <button ion-button (click)="getMedia()">Take a picture</button>
+
     </div>
     <div>
       <button ion-button color="secondary" round outline type="submit" [disabled]="!myForm.valid" (click)="addRecipe(recipe)">Guardar</button>
     </div>
   </form>
-  <p align="center"><img src="{{picData}}"></p>
+  <p>Aquí esta la foto: </p>
+  <img src="{{picData}} | async">
 </ion-content>
