@@ -33,8 +33,15 @@ export class DataProvider {
 
   filterItems(searchTerm, recipes){
     return recipes.filter((item) => {
-      return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ;
+      console.log('data TS' + item);
+      if (!item.name) {
+        return false
+      } else {
+      return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+    }
     });
+
+
 
   }
 
