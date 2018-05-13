@@ -17,7 +17,7 @@ export class CustomerEmailFilter implements PipeTransform {
        //console.log(this.hola)
     ) ;
 */
-      console.log(args);
+console.log(args);
      return recipes.filter(item => {
        if (!item.user){
          return false

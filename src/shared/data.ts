@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {DbApiService} from "./db-api.service";
 
@@ -33,7 +33,12 @@ export class DataProvider {
 
   filterItems(searchTerm, recipes){
     return recipes.filter((item) => {
-      return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ;
+      if (!item.name){
+        return false
+      } else {
+        return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+
+      }
     });
 
   }
