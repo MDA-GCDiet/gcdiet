@@ -45,9 +45,7 @@ this.myForm = this.createMyForm();
 private createMyForm() {
   return this.formBuilder.group({
     name: ['', Validators.required],
-    description: ['', Validators.required],
     ingredients: ['', Validators.required],
-    steps: ['', Validators.required],
   });
 }
 
