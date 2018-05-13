@@ -20,15 +20,13 @@ import {LoginPage} from "../pages/login/login";
 import {MapPage} from "../pages/map/map";
 import {RegisterPage} from "../pages/register/register";
 import {AgmCoreModule} from "@agm/core"
-
 import {NewRecipePage} from "../pages/new-recipe/new-recipe";
 import {PerfilPage} from "../pages/perfil/perfil";
-
 import {CalendarPage} from "../pages/calendar/calendar";
 import {FoodPage} from "../pages/food/food";
-
 import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
 import {AddEventPage} from "../pages/add-event/add-event";
+import {FavoritesPage} from "../pages/favorites/favorites";
 
 import {Camera} from "@ionic-native/camera";
 
@@ -38,8 +36,11 @@ import {CustomerEmailFilter} from "../shared/filter-pipe.pipe";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {DataProvider} from "../shared/data";
 import {HttpModule} from "@angular/http";
+import { HttpClientModule } from '@angular/common/http'; 
 // import {MyFilterPipe} from "../shared/filter-pipe.pipe";
 import { Ionic2RatingModule } from 'ionic2-rating';
+
+import { IonicStorageModule } from '@ionic/storage';
 
 
 export const FirebaseConfig = {
@@ -67,7 +68,7 @@ export const FirebaseConfig = {
     FoodPage,
     AddEventPage,
     EditRecipePage,
-
+    FavoritesPage,
     CommentsPage,
     // MyFilterPipe
     CustomerEmailFilter
@@ -81,7 +82,9 @@ export const FirebaseConfig = {
     AngularFireAuthModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyA1QKO_9r_1r6UzNrv-FZxxDd_wS861YHs' }),
     Ionic2RatingModule,
-    HttpModule
+    HttpModule,
+    IonicStorageModule.forRoot(),
+    HttpClientModule
 
   ],
   bootstrap: [IonicApp],
@@ -101,7 +104,8 @@ export const FirebaseConfig = {
     AddEventPage,
     EditRecipePage,
     CommentsPage,
-    AddEventPage
+    AddEventPage,
+    FavoritesPage
 
 
   ],
@@ -115,7 +119,7 @@ export const FirebaseConfig = {
     Calendar,
     SocialSharing,
     Camera,
-    DataProvider
+    DataProvider,
   ]
 })
 
