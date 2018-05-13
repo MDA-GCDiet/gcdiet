@@ -6,8 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>RecipeDetail</ion-title>
+  <ion-navbar color="secondary">
+      
+    <ion-title>{{recipe.name}}</ion-title>
+    <ion-buttons end class="favorites">
+        <button ion-button icon-only (click)="unfavoriteRecipe(recipe)" *ngIf="favorite"><ion-icon name="star" ></ion-icon></button>
+        <button ion-button icon-only (click)="favoriteRecipe(recipe)" *ngIf="!favorite"><ion-icon name="star-outline"></ion-icon></button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -17,27 +22,23 @@
   <form [formGroup]="myForm">
     <ion-list>
         <ion-item>
+            
             <ion-label stacked>Título:</ion-label>
-            <ion-input formControlName="name" type="text" value="Pasta bolognesa"></ion-input>
+            <ion-input formControlName="name" type="text" value={{recipe.name}}></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-label stacked>Descripción:</ion-label>
-          <ion-textarea formControlName="description" name="description" value="Receta típica italiana que mezcla los mejores sabores del huerto"></ion-textarea>
-        </ion-item>
+        
         <ion-item>
           <ion-label stacked>Ingredientes:</ion-label>
            <ion-input formControlName="ingredients" type="text" value="pasta, tomate, carne picada, verduras"></ion-input>
         </ion-item>
-          <ion-item>
-            <ion-label stacked>Pasos:</ion-label>
-            <ion-input formControlName="steps" type="text" value="Cocinar pasta, preparar salsa"></ion-input>
-          </ion-item>
+          
       <!-- <ion-item>
         <ion-label stacked>Correo electronico:</ion-label>
         <ion-input formControlName="email" type="email" placeholder="Email" [(ngModel)]="user.email"></ion-input>
       </ion-item> -->
     </ion-list>
     <div padding>
+        
       <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="navRecipes(user)">Guardar</button>
     </div>
   </form>

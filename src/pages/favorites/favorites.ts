@@ -9,17 +9,27 @@ import {PerfilPage} from "../perfil/perfil";
 import {DbApiService} from "../../shared/db-api.service";
 import {MapPage} from "../map/map";
 import { SocialSharing } from "@ionic-native/social-sharing";
+import {Camera, CameraOptions} from "@ionic-native/camera";
 import {EditRecipePage} from "../edit-recipe/edit-recipe";
 import {RecipeDetailPage} from "../recipe-detail/recipe-detail";
 import {CommentsPage} from "../comments/comments";
 
 
+import { Storage } from '@ionic/storage';
+
+/**
+ * Generated class for the FavoritesPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-favorites',
+  templateUrl: 'favorites.html',
 })
-export class HomePage {
+export class FavoritesPage {
 
   usuario = {};
   recipes = [];
@@ -31,15 +41,16 @@ export class HomePage {
   description: string = null;
   comments=new Array("");
   newComment: string=null;
-
+  recipe:any;
 
   constructor(private afAuth: AngularFireAuth,
               private toast : ToastController,
               public navCtrl: NavController,
               private socialsharing: SocialSharing,
               public navParams: NavParams, private dbapi: DbApiService,
-              private socialSharing: SocialSharing) {
-
+              private socialSharing: SocialSharing,
+              private camera: Camera,
+              public storage: Storage) {
 
   }
 
@@ -55,11 +66,14 @@ export class HomePage {
         }).present();
       }
     });
+    this.storage.forEach( (value, key, index) => {
+      this.recipes.push(value);
+    })
 
-    this.dbapi.getRecipes().subscribe(
-      (data) => this.recipes = data
-    );
-    this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
+    // this.dbapi.getRecipes().subscribe(
+    //   (data) => this.recipes = data
+    // );
+    // this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
   }
 
   goToLogin() {
@@ -73,7 +87,7 @@ export class HomePage {
         duration: 3000
       }).present()
     );
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(FavoritesPage);
   }
 
   navRecipes(){
@@ -109,8 +123,20 @@ export class HomePage {
     })
   }
 
-  navComments(recipe, usuario){
-    this.navCtrl.push(CommentsPage, {'recipe': recipe, 'usuario': usuario});
+  getPicture(){
+    const options: CameraOptions = {
+      destinationType: this.camera.DestinationType.DATA_URL,
+      targetWidth: 1000,
+      targetHeight: 1000,
+      quality: 100
+    };
+    this.camera.getPicture(options)
+      .then(imageData => {
+        this.image = `data:image/jpeg;base64,${imageData}`;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
   onModelChange($event, recipe){
     if(!recipe.votes){
@@ -121,14 +147,17 @@ export class HomePage {
       recipe.votes++;
       recipe.points += recipe.rate;
       recipe.rate = recipe.points/recipe.votes;
-      
+
     }
     this.lock=true;
     this.dbapi.pushRecipe(recipe);
-    
+
     console.log(recipe);
     console.log(recipe);
   }
 
+  navComments(recipe, usuario){
+    this.navCtrl.push(CommentsPage, {'recipe': recipe, 'usuario': usuario});
+  }
 
 }
