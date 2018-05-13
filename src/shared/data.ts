@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {DbApiService} from "./db-api.service";
 
@@ -33,6 +33,7 @@ export class DataProvider {
 
   filterItems(searchTerm, recipes){
     return recipes.filter((item) => {
+
       console.log('data TS' + item);
       if (!item.name) {
         return false

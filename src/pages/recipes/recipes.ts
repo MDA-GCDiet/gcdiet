@@ -75,7 +75,6 @@ export class RecipesPage {
 
     this.dbapi.getRecipes().subscribe((data) =>this.ingredients = data.ingredients);
 
-
     this.setFilteredItems();
     this.searchControl.valueChanges.subscribe(search  => {
       this.searching = true;
@@ -98,9 +97,9 @@ export class RecipesPage {
     console.log(a);
   }
 
-  // navRecipeDetail(recipe){
-  //   this.navCtrl.push(RecipeDetailPage, recipe);
-  // }
+  navRecipeDetail(recipe){
+    this.navCtrl.push(RecipeDetailPage, recipe);
+  }
 
   goToRecipes(){
     this.nav.push(RecipesPage);

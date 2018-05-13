@@ -38,7 +38,7 @@ export class RecipeDetailPage {
     public storage: Storage
     ) {
 
-      this.recipe=this.navParams.get('recipe')
+      this.recipe=this.navParams.get('recipe');
 this.myForm = this.createMyForm();
 }
 
@@ -51,7 +51,7 @@ private createMyForm() {
 
   ionViewDidLoad() {
     console.log( this.navParams.get('recipe'));
-    
+
   }
   ionViewWillLoad(){
     this.isFav(this.recipe);

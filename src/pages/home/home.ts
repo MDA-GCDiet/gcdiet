@@ -91,7 +91,7 @@ export class HomePage {
 
 
   navRecipe(recipe){
-    this.navCtrl.push(RecipeDetailPage, {recipe: recipe});
+    this.navCtrl.push(RecipeDetailPage, {'recipe': recipe});
   }
 
   navEdit(recipe){
@@ -121,11 +121,11 @@ export class HomePage {
       recipe.votes++;
       recipe.points += recipe.rate;
       recipe.rate = recipe.points/recipe.votes;
-      
+
     }
     this.lock=true;
     this.dbapi.pushRecipe(recipe);
-    
+
     console.log(recipe);
     console.log(recipe);
   }
